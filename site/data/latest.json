@@ -1,0 +1,94 @@
+{
+ "id": "2026-11-17",
+ "number": 1,
+ "compiled": "2026-11-17",
+ "index": 2.27,
+ "period": {
+  "ru": "10–16 ноября 2026",
+  "uk": "10–16 листопада 2026",
+  "en": "10–16 November 2026"
+ },
+ "domains": {
+  "energy": {
+   "score": 1.0,
+   "status": "crit",
+   "name": {
+    "ru": "Энергетика",
+    "uk": "Енергетика",
+    "en": "Energy"
+   }
+  },
+  "airdef": {
+   "score": 1.6,
+   "status": "crit",
+   "name": {
+    "ru": "ПВО и защита тыла",
+    "uk": "ППО та захист тилу",
+    "en": "Air defence & home front"
+   }
+  },
+  "front": {
+   "score": 2.6,
+   "status": "warn",
+   "name": {
+    "ru": "Фронт",
+    "uk": "Фронт",
+    "en": "Front line"
+   }
+  },
+  "army": {
+   "score": 2.0,
+   "status": "warn",
+   "name": {
+    "ru": "Кадры армии",
+    "uk": "Кадри армії",
+    "en": "Military manpower"
+   }
+  },
+  "economy": {
+   "score": 2.1,
+   "status": "warn",
+   "name": {
+    "ru": "Экономика",
+    "uk": "Економіка",
+    "en": "Economy"
+   }
+  },
+  "finance": {
+   "score": 2.5,
+   "status": "warn",
+   "name": {
+    "ru": "Госфинансы",
+    "uk": "Держфінанси",
+    "en": "Public finance"
+   }
+  },
+  "anticorr": {
+   "score": 2.2,
+   "status": "warn",
+   "name": {
+    "ru": "Антикоррупция",
+    "uk": "Антикорупція",
+    "en": "Anti-corruption"
+   }
+  },
+  "diplomacy": {
+   "score": 3.0,
+   "status": "info",
+   "name": {
+    "ru": "Дипломатия",
+    "uk": "Дипломатія",
+    "en": "Diplomacy"
+   }
+  },
+  "society": {
+   "score": 3.4,
+   "status": "ok",
+   "name": {
+    "ru": "Общество и демография",
+    "uk": "Суспільство і демографія",
+    "en": "Society & demography"
+   }
+  }
+ }
+}

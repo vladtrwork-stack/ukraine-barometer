@@ -1,0 +1,22 @@
+name: Сообщить об ошибке / Повідомити про помилку / Report a mistake
+description: Неверная цифра, устаревшие данные, неточная формулировка
+title: "[Исправление] "
+labels: ["correction"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Где ошибка / Де помилка / Where
+      description: Выпуск, раздел, показатель
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: Что не так и как правильно / Що не так / What is wrong
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Источник / Джерело / Source (URL)

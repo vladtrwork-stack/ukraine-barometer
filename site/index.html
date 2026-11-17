@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Барометр Украины</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Барометр Украины: еженедельный независимый индекс устойчивости по 9 сферам, данные, предложения и коррупционная составляющая. RU / UA / EN.">
+<meta property="og:title" content="Барометр Украины">
+<meta property="og:description" content="Еженедельный независимый индекс устойчивости Украины по открытым данным.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07090f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="side-nav" id="side">
+    <a class="brand" href="#overview">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-txt"><span class="brand-name" data-i18n="brand">Барометр</span><span class="brand-sub" data-i18n="brandSub">еженедельный индекс по открытым данным</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Sections"></nav>
+    <div class="side-foot">
+      <div class="seg" role="group" aria-label="Language" id="lang">
+        <button type="button" id="lang-ru" data-lang="ru">RU</button>
+        <button type="button" id="lang-uk" data-lang="uk">UA</button>
+        <button type="button" id="lang-en" data-lang="en">EN</button>
+      </div>
+      <select id="week-select" aria-label="Week"></select>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <main class="wrap" id="app">
+      <div class="loading" id="loading"><span class="spinner"></span></div>
+    </main>
+    <footer class="foot">
+      <div class="foot-in">
+        <span id="foot-note"></span>
+        <span class="mono" id="updated"></span>
+      </div>
+    </footer>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Барометр Украины — виджет</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600&family=Onest:wght@400;500&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  :root{--bg:#0d121c;--ink:#eaf0fa;--muted:#93a0b6;--line:rgba(148,170,210,.14);--track:#182133;
+    --crit:#ff5f5f;--warn:#ffb340;--info:#5b9cff;--ok:#34d399;color-scheme:dark}
+  @media (prefers-color-scheme:light){:root{--bg:#ffffff;--ink:#0d1526;--muted:#56627a;--line:rgba(20,34,64,.12);--track:#eceff6;color-scheme:light}}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"Onest",system-ui,sans-serif}
+  a.w{display:grid;gap:12px;height:100%;padding:16px 18px;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:16px}
+  .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .name{font-family:"Unbounded",sans-serif;font-size:14px;font-weight:600}
+  .per{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .idx{font-family:"Unbounded",sans-serif;font-size:44px;font-weight:600;line-height:1;letter-spacing:-.04em}
+  .idx small{font-size:15px;color:var(--muted);font-weight:400;letter-spacing:0}
+  .lab{font-size:12px;color:var(--muted)}
+  .bars{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;align-self:end}
+  .bars i{height:26px;border-radius:5px;background:var(--track);position:relative;overflow:hidden}
+  .bars i::after{content:"";position:absolute;inset:auto 0 0 0;height:var(--h);background:var(--c)}
+</style>
+</head>
+<body>
+<a class="w" id="w" href="./" target="_blank" rel="noopener">
+  <div class="top"><span class="name" id="name">Барометр Украины</span><span class="per" id="per"></span></div>
+  <div><div class="idx" id="idx">…</div><div class="lab" id="lab">Индекс устойчивости</div></div>
+  <div class="bars" id="bars"></div>
+</a>
+<script>
+  (async () => {
+    const lang = (new URLSearchParams(location.search).get("lang") || "ru").slice(0, 2);
+    const T = { ru: ["Барометр Украины", "Индекс устойчивости"], uk: ["Барометр України", "Індекс стійкості"], en: ["Ukraine Barometer", "Resilience index"] }[lang] || ["Барометр Украины", "Индекс устойчивости"];
+    const C = { crit: "var(--crit)", warn: "var(--warn)", info: "var(--info)", ok: "var(--ok)" };
+    document.documentElement.lang = lang;
+    try {
+      const d = await fetch("data/latest.json", { cache: "no-cache" }).then((r) => r.json());
+      const fmt = (v) => v.toLocaleString(lang === "en" ? "en-GB" : lang === "uk" ? "uk-UA" : "ru-RU", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+      document.getElementById("name").textContent = T[0];
+      document.getElementById("lab").textContent = T[1];
+      document.getElementById("per").textContent = d.period[lang] || d.period.ru;
+      document.getElementById("idx").innerHTML = `${fmt(d.index)}<small> / 5</small>`;
+      document.getElementById("bars").innerHTML = Object.values(d.domains).sort((a, b) => a.score - b.score)
+        .map((x) => `<i title="${x.name[lang] || x.name.ru}: ${fmt(x.score)}" style="--h:${(x.score / 5) * 100}%;--c:${C[x.status]}"></i>`).join("");
+    } catch (e) { document.getElementById("idx").textContent = "—"; }
+  })();
+</script>
+</body>
+</html>

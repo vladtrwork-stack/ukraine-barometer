@@ -1,0 +1,23 @@
+name: Пост в Telegram
+# Срабатывает, когда в индекс выпусков добавлена новая неделя. Нужны секреты TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID
+# и переменная репозитория SITE_URL. Без секретов шаг завершается без отправки.
+on:
+  push:
+    branches: [main]
+    paths: ["site/data/briefs/index.json"]
+  workflow_dispatch:
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow==10.4.0
+      - name: Отправка
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: python make_card.py ru --send

@@ -1,0 +1,1462 @@
+{
+ "id": "2026-11-17",
+ "number": 1,
+ "period": "10–16 November 2026",
+ "compiled": "2026-11-17",
+ "headline": [
+  {
+   "level": "crit",
+   "title": "The power grid is in its worst state of the season",
+   "text": "More than 310 attacks on energy facilities since the start of November. Scheduled outages in nearly every oblast, and all-day blackouts in parts of the country. Patriot interceptors arrive at about 12 a month, far too few to cover substations."
+  },
+  {
+   "level": "warn",
+   "title": "The economy has slipped from slow growth into contraction",
+   "text": "Q3 GDP fell 0.7% year on year, inflation is rising and the NBU raised its key rate to 16.5%. The main drags are labour shortages and power outages."
+  },
+  {
+   "level": "warn",
+   "title": "2027 is short $32.6bn of external financing",
+   "text": "The European Commission tables a €45bn loan on 18 November. Its fate depends on confidence in anti-corruption policy, which the Carthage case is now testing."
+  },
+  {
+   "level": "info",
+   "title": "Talks resumed after a nine-month pause",
+   "text": "Fourth trilateral round in Abu Dhabi. No breakthrough; Donbas is the core dispute. The achievable result is a prisoner exchange of 1,000–1,500 on each side."
+  },
+  {
+   "level": "ok",
+   "title": "Strikes on Russian refineries work, but only partly",
+   "text": "Refining capacity is down about 30%, yet crude exports rose to 3.9m barrels a day and October revenue was 65% higher than a year earlier."
+  }
+ ],
+ "kpis": [
+  {
+   "label": "Inflation, October",
+   "value": "11.0%",
+   "sub": "y/y · September 10.0%",
+   "dir": "bad",
+   "source": "companion.ua",
+   "unverified": true,
+   "conf": "single"
+  },
+  {
+   "label": "GDP, Q3",
+   "value": "−0.7%",
+   "sub": "y/y · Q2 +0.4%",
+   "dir": "bad",
+   "source": "State Statistics Service",
+   "conf": "confirmed"
+  },
+  {
+   "label": "2027 financing gap",
+   "value": "$32.6bn",
+   "sub": "of $52.6bn needed",
+   "dir": "bad",
+   "source": "Ministry of Finance",
+   "conf": "confirmed"
+  },
+  {
+   "label": "Attacks on energy",
+   "value": "116–161",
+   "sub": "this week · 310+ since 1 Nov",
+   "dir": "bad",
+   "source": "Ukrainska Pravda, Energy Ministry",
+   "conf": "estimate"
+  },
+  {
+   "label": "Patriot interceptors",
+   "value": "~12 / mo",
+   "sub": "500 PAC-3 approved, delivery in years",
+   "dir": "bad",
+   "source": "President's Office",
+   "conf": "single"
+  },
+  {
+   "label": "Trust in the president",
+   "value": "62%",
+   "sub": "up from 43% in early October",
+   "dir": "good",
+   "source": "KIIS, 16–25 Oct",
+   "conf": "confirmed"
+  },
+  {
+   "label": "Ukrainians protected in the EU",
+   "value": "4.38m",
+   "sub": "status extended to 4 Mar 2028",
+   "dir": "neutral",
+   "source": "EU",
+   "conf": "confirmed"
+  },
+  {
+   "label": "Russia: oil revenue, October",
+   "value": "$21.2bn",
+   "sub": "+65% y/y",
+   "dir": "bad",
+   "source": "IEA",
+   "conf": "single"
+  },
+  {
+   "label": "Russia: refining capacity",
+   "value": "−30%",
+   "sub": "Kyiv's estimate: −55%",
+   "dir": "good",
+   "source": "Reuters / Ukrainska Pravda",
+   "conf": "estimate"
+  }
+ ],
+ "domains": [
+  {
+   "id": "energy",
+   "name": "Energy",
+   "status": "crit",
+   "statusLabel": "Critical",
+   "trend": "down",
+   "situation": [
+    "Massive strike on 2–3 November; 12 oblasts without power on 9 November.",
+    "Strikes on 11 major substations on 10–11 November.",
+    "Scheduled outages in nearly every oblast; capacity caps for industry.",
+    "Repairs keep failing because of repeat strikes."
+   ],
+   "diagnosis": "The strikes target substations and distribution nodes rather than generation. With current air defence, repairs cannot outpace repeat strikes. Resilience can only come from decentralisation: many small sources are harder to destroy than a few large nodes.",
+   "recs": [
+    {
+     "lever": "NSDC decision → Cabinet",
+     "title": "A distributed-generation programme prioritising critical infrastructure",
+     "what": "Gas-piston units, cogeneration and storage for water utilities, hospitals and district heating",
+     "cost": "Budget plus partner funds, gas",
+     "metric": "MW of distributed capacity; hours without water and heat",
+     "effect": "Water, heating and hospitals keep running during grid outages. Expected: hours without water and heat in big cities fall several-fold.",
+     "impact": {
+      "energy": 1.0,
+      "economy": 0.2,
+      "society": 0.2
+     }
+    },
+    {
+     "lever": "Diplomacy",
+     "title": "A separate request to partners for transformers and autotransformers, not just money",
+     "what": "Reserve equipment pool in the EU, fast-track logistics",
+     "metric": "Substation restoration time",
+     "effect": "Repairing a damaged substation takes days, not weeks, because the equipment is already in stock.",
+     "impact": {
+      "energy": 0.5
+     }
+    },
+    {
+     "lever": "Pressure on Cabinet",
+     "title": "Expand electricity imports from the EU and lift price caps on imports",
+     "metric": "Import volume, MWh per day",
+     "effect": "Imports cover part of the peak-hour deficit: fewer outage hours for people and businesses.",
+     "impact": {
+      "energy": 0.4,
+      "economy": 0.2
+     }
+    }
+   ],
+   "metrics": [
+    {
+     "label": "Attacks on energy sites per week",
+     "raw": 140,
+     "value": "116–161",
+     "better": "lower",
+     "thresholds": [
+      20,
+      50,
+      90,
+      130
+     ],
+     "weight": 0.35,
+     "conf": "single",
+     "source": "УП, Минэнерго"
+    },
+    {
+     "label": "Oblasts with scheduled outages",
+     "raw": 22,
+     "value": "≈22 of 24",
+     "better": "lower",
+     "thresholds": [
+      3,
+      8,
+      14,
+      20
+     ],
+     "weight": 0.35,
+     "conf": "estimate",
+     "source": "Укрэнерго, УП"
+    },
+    {
+     "label": "Protected priority substations, Kyiv oblast",
+     "raw": 11,
+     "value": "3 of 27 (11%)",
+     "better": "higher",
+     "thresholds": [
+      20,
+      40,
+      60,
+      80
+     ],
+     "weight": 0.3,
+     "conf": "single",
+     "source": "ТСК ВР, DSnews"
+    }
+   ],
+   "scoreExpert": 1
+  },
+  {
+   "id": "airdef",
+   "name": "Air defence & home front",
+   "status": "crit",
+   "statusLabel": "Critical",
+   "trend": "down",
+   "situation": [
+    "Patriot: about 12 missiles a month on average, roughly 95% via PURL.",
+    "European-funded missiles are delayed. The US denies it; Rubio says a delay is possible.",
+    "A licence to produce Patriot missiles in Ukraine is stuck at the Pentagon.",
+    "Germany pledged $300m; sale of 500 PAC-3 approved, deliveries will take years."
+   ],
+   "diagnosis": "The bottleneck is the number of interceptors, not the money for them. Russia uses ballistic and manoeuvring missiles exactly where air defence is thin. US deliveries also serve as political leverage over Kyiv during talks.",
+   "recs": [
+    {
+     "lever": "Diplomacy",
+     "title": "Secure a public PURL delivery schedule with a monthly paid vs delivered reconciliation",
+     "what": "Through NATO and European payers, not only Washington",
+     "metric": "Missiles per month",
+     "effect": "A public schedule makes quiet delays impossible, so cover for key sites can be planned months ahead.",
+     "impact": {
+      "airdef": 0.5
+     }
+    },
+    {
+     "lever": "Decree / NSDC",
+     "title": "Scale up cheap interception: interceptor drones, mobile fire teams, electronic warfare",
+     "what": "Save expensive missiles for ballistic threats",
+     "metric": "Share of Shaheds downed; cost per intercept",
+     "effect": "Downing a Shahed costs a fraction as much, and scarce Patriot missiles are kept for ballistic threats. More targets downed on the same budget.",
+     "impact": {
+      "airdef": 1.0,
+      "energy": 0.4
+     }
+    },
+    {
+     "lever": "Diplomacy",
+     "title": "Diversify suppliers: SAMP/T, IRIS-T, NASAMS, co-production in Europe",
+     "metric": "Share of non-US interceptors",
+     "effect": "Less dependence on one supplier: a US delay no longer leaves cities undefended.",
+     "impact": {
+      "airdef": 0.5
+     }
+    }
+   ],
+   "metrics": [
+    {
+     "label": "Patriot interceptors per month",
+     "raw": 12,
+     "value": "~12",
+     "better": "higher",
+     "thresholds": [
+      15,
+      30,
+      50,
+      80
+     ],
+     "weight": 0.4,
+     "conf": "single",
+     "source": "Офис президента"
+    },
+    {
+     "label": "Share of non-US interceptors",
+     "raw": 5,
+     "value": "~5%",
+     "better": "higher",
+     "thresholds": [
+      10,
+      25,
+      40,
+      60
+     ],
+     "weight": 0.3,
+     "conf": "estimate",
+     "source": "Минобороны"
+    },
+    {
+     "label": "Massive combined strikes per week",
+     "raw": 2,
+     "value": "2",
+     "better": "lower",
+     "thresholds": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "weight": 0.3,
+     "conf": "confirmed",
+     "source": "УП, Ukrinform"
+    }
+   ],
+   "scoreExpert": 1
+  },
+  {
+   "id": "front",
+   "name": "Front line",
+   "status": "warn",
+   "statusLabel": "Tense",
+   "trend": "flat",
+   "situation": [
+    "ISW: no significant advances on most axes (neither side advanced on 9–10 November).",
+    "Kostiantynivka: a local ceasefire. ISW assesses Russia is using it to mass forces for a push on Druzhkivka, a fortified node of the Fortress Belt.",
+    "Sumy axis: limited attacks, no confirmed advances."
+   ],
+   "diagnosis": "The front is stable, but the lull near Kostiantynivka looks like preparation for an offensive, not de-escalation. Russia pairs negotiations with preparing pressure on Donbas's fortress belt.",
+   "recs": [
+    {
+     "lever": "Commander-in-chief",
+     "title": "Treat local lulls with suspicion: keep reserves on the Druzhkivka–Kramatorsk axis",
+     "metric": "Weekly front-line changes per ISW and DeepState",
+     "effect": "If the push on Druzhkivka starts, reserves are already in place: lower risk of a breakthrough and of losing a fortified node.",
+     "impact": {
+      "front": 0.5
+     }
+    },
+    {
+     "lever": "NSDC → Defence Ministry",
+     "title": "A public audit of fortification building: timelines, money, readiness",
+     "what": "Past scandals over fortification quality make this a trust issue",
+     "effect": "Fortification money reaches trenches and concrete, and trust in rear-area decisions grows.",
+     "impact": {
+      "front": 0.3,
+      "anticorr": 0.2
+     }
+    }
+   ],
+   "metrics": [
+    {
+     "label": "Change in occupied area per week",
+     "raw": null,
+     "value": "auto",
+     "better": "lower",
+     "thresholds": [
+      0,
+      20,
+      60,
+      120
+     ],
+     "weight": 0.6,
+     "conf": "auto",
+     "source": "DeepState",
+     "auto": "front_week_km2"
+    },
+    {
+     "label": "Threat of a major offensive (room's assessment)",
+     "raw": 2,
+     "value": "high",
+     "better": "higher",
+     "thresholds": [
+      1.5,
+      2.5,
+      3.5,
+      4.5
+     ],
+     "weight": 0.4,
+     "conf": "expert",
+     "source": "ISW, штаб"
+    }
+   ],
+   "scoreExpert": 2
+  },
+  {
+   "id": "army",
+   "name": "Military manpower",
+   "status": "warn",
+   "statusLabel": "Tense",
+   "trend": "flat",
+   "situation": [
+    "On 26 October the Rada extended mobilisation for 90 days.",
+    "The simplified return after AWOL has ended; the standard procedure through the Military Law Enforcement Service now applies.",
+    "Recruitment-centre violations (Ternopil, State Bureau of Investigation), court cases over fines, a new law on fines up to UAH 170,000."
+   ],
+   "diagnosis": "AWOL is a symptom of missing clear terms of service and rotations. Recruitment-centre scandals undermine trust in mobilisation more than enemy propaganda does. Ending the simplified return may reduce the number of soldiers coming back.",
+   "recs": [
+    {
+     "lever": "Presidential bill",
+     "title": "Clear terms of service and demobilisation, rotations, leave",
+     "cost": "More recruits needed as replacements",
+     "metric": "New AWOL cases per month",
+     "effect": "Clear terms of service cut AWOL and make mobilisation look fairer. Over time, more contract volunteers.",
+     "impact": {
+      "army": 0.8,
+      "society": 0.3,
+      "front": 0.3
+     }
+    },
+    {
+     "lever": "Decree",
+     "title": "Extend or restore the simplified AWOL return with a guaranteed transfer to another unit",
+     "metric": "Returns per month",
+     "effect": "Some of those who went AWOL return to service instead of facing prosecution: thousands of soldiers without new mobilisation.",
+     "impact": {
+      "army": 0.5,
+      "front": 0.2
+     }
+    },
+    {
+     "lever": "Pressure on Defence Ministry",
+     "title": "Body cameras and a digital trail for all recruitment-centre procedures, with a monthly public violations report",
+     "effect": "Fewer abuses and scandals; trust in recruitment centres and mobilisation stops falling.",
+     "impact": {
+      "army": 0.4,
+      "anticorr": 0.2,
+      "society": 0.2
+     }
+    }
+   ],
+   "metrics": [
+    {
+     "label": "New recruitment-centre schemes made public",
+     "raw": 3,
+     "value": "≈3",
+     "better": "lower",
+     "thresholds": [
+      0,
+      1,
+      3,
+      5
+     ],
+     "weight": 0.3,
+     "conf": "estimate",
+     "source": "ДБР, СБУ, СМИ"
+    },
+    {
+     "label": "Simplified AWOL return in force",
+     "raw": 0,
+     "value": "no",
+     "better": "higher",
+     "thresholds": [
+      0.2,
+      0.4,
+      0.6,
+      0.8
+     ],
+     "weight": 0.3,
+     "conf": "confirmed",
+     "source": "ТЦК, Обозреватель"
+    },
+    {
+     "label": "Trust in mobilisation (room's assessment)",
+     "raw": 2,
+     "value": "low",
+     "better": "higher",
+     "thresholds": [
+      1.5,
+      2.5,
+      3.5,
+      4.5
+     ],
+     "weight": 0.4,
+     "conf": "expert",
+     "source": "штаб"
+    }
+   ],
+   "scoreExpert": 2
+  },
+  {
+   "id": "economy",
+   "name": "Economy",
+   "status": "warn",
+   "statusLabel": "Worsening",
+   "trend": "down",
+   "situation": [
+    "GDP: Q2 +0.4%, Q3 −0.7% y/y. Dragon Capital forecasts −0.5% for 2026.",
+    "Inflation is rising (about 11% in October, unconfirmed); the NBU expects 12.5% by year-end.",
+    "Key rate 16.5%, which the NBU expects to hold until Q2 2027.",
+    "Acute labour shortages in industry, construction and logistics.",
+    "The hryvnia is strengthening against the euro and stable against the dollar."
+   ],
+   "diagnosis": "The economy is held back by two constraints: people and electricity. Rate hikes restrain inflation but weigh on credit and growth. The president has few direct levers; the NBU is independent. The main tools go through the Cabinet and the labour market.",
+   "recs": [
+    {
+     "lever": "Pressure on Cabinet",
+     "title": "A Work with a Generator programme: backup-power compensation for SMEs in regions with long outages",
+     "metric": "Business activity index; vacancies on Work.ua",
+     "effect": "Small businesses keep working through outages, preserving jobs and tax revenue.",
+     "impact": {
+      "economy": 0.4
+     }
+    },
+    {
+     "lever": "Bill",
+     "title": "Labour market: veteran reintegration, employment of women and people over 60, easier hiring of foreign workers",
+     "metric": "Vacancy-to-CV gap",
+     "effect": "Labour shortages in industry, construction and logistics ease, giving the economy room to grow.",
+     "impact": {
+      "economy": 0.5
+     }
+    },
+    {
+     "lever": "Coordination",
+     "title": "Avoid inflationary decisions (sharp regulated-price hikes) until expectations stabilise",
+     "effect": "Inflation expectations settle sooner, the NBU can cut rates earlier, and credit gets cheaper.",
+     "impact": {
+      "economy": 0.3
+     }
+    }
+   ],
+   "metrics": [
+    {
+     "label": "Inflation, y/y",
+     "raw": 11.0,
+     "value": "11.0%",
+     "better": "lower",
+     "thresholds": [
+      5,
+      8,
+      10,
+      13
+     ],
+     "weight": 0.3,
+     "conf": "single",
+     "source": "companion.ua"
+    },
+    {
+     "label": "GDP growth, y/y",
+     "raw": -0.7,
+     "value": "−0.7%",
+     "better": "higher",
+     "thresholds": [
+      0,
+      1,
+      2,
+      4
+     ],
+     "weight": 0.3,
+     "conf": "confirmed",
+     "source": "Держстат"
+    },
+    {
+     "label": "NBU key rate",
+     "raw": null,
+     "value": "auto",
+     "better": "lower",
+     "thresholds": [
+      8,
+      12,
+      15,
+      18
+     ],
+     "weight": 0.2,
+     "conf": "auto",
+     "source": "НБУ",
+     "auto": "policy_rate"
+    },
+    {
+     "label": "USD/UAH over 3 months",
+     "raw": null,
+     "value": "auto",
+     "better": "lower",
+     "thresholds": [
+      0,
+      2,
+      5,
+      10
+     ],
+     "weight": 0.2,
+     "conf": "auto",
+     "source": "НБУ",
+     "auto": "usd_13w"
+    }
+   ],
+   "scoreExpert": 2
+  },
+  {
+   "id": "finance",
+   "name": "Public finance",
+   "status": "warn",
+   "statusLabel": "At risk",
+   "trend": "flat",
+   "situation": [
+    "External financing need for 2027 is $52.6bn, with $20bn confirmed. The IMF puts the gap at $30–35bn.",
+    "The European Commission tables a new €45bn loan backed by the EU budget on 18 November.",
+    "Ukraine Facility: a record tranche of nearly €8bn (16 November).",
+    "The government wants to claw back UAH 19.2bn in reverse subsidies from 218 communities."
+   ],
+   "diagnosis": "This is the main financial question for the next two months. The loan decision depends on EU member states and on the credibility of reforms. Taking money from communities saves little but costs a lot politically, especially near the front.",
+   "recs": [
+    {
+     "lever": "Diplomacy",
+     "title": "Aim for approval of the €45bn loan at the December European Council, with targeted outreach to hesitant states",
+     "metric": "Vote date; member-state positions",
+     "effect": "Most of the 2027 gap is closed: military pay, pensions and defence procurement are funded without money printing.",
+     "impact": {
+      "finance": 1.2,
+      "economy": 0.3
+     }
+    },
+    {
+     "lever": "Bill / signature",
+     "title": "Get the 2026–2030 anti-corruption strategy (No. 15230-d) adopted by the end of November",
+     "what": "The EU ambassador publicly criticises the delay, and it is directly tied to funding",
+     "effect": "The sceptics' main argument in the EU disappears, improving the odds for the loan and new clusters.",
+     "impact": {
+      "finance": 0.4,
+      "anticorr": 0.6,
+      "diplomacy": 0.3
+     }
+    },
+    {
+     "lever": "Pressure on Cabinet",
+     "title": "Keep reverse subsidies for front-line communities; cut them only for wealthy rear communities",
+     "effect": "Front-line communities keep money for shelters, water and heat; tension between Kyiv and local government eases.",
+     "impact": {
+      "finance": 0.2,
+      "society": 0.2
+     }
+    }
+   ],
+   "metrics": [
+    {
+     "label": "Unconfirmed 2027 financing",
+     "raw": 32.6,
+     "value": "$32.6bn",
+     "better": "lower",
+     "thresholds": [
+      5,
+      10,
+      20,
+      30
+     ],
+     "weight": 0.5,
+     "conf": "confirmed",
+     "source": "Минфин"
+    },
+    {
+     "label": "NBU reserves, 1 year",
+     "raw": null,
+     "value": "auto",
+     "better": "higher",
+     "thresholds": [
+      -10,
+      -5,
+      0,
+      5
+     ],
+     "weight": 0.25,
+     "conf": "auto",
+     "source": "НБУ",
+     "auto": "reserves_yoy"
+    },
+    {
+     "label": "External inflows this week",
+     "raw": 8,
+     "value": "≈ €8bn",
+     "better": "higher",
+     "thresholds": [
+      0.5,
+      1,
+      3,
+      5
+     ],
+     "weight": 0.25,
+     "conf": "single",
+     "source": "Ukraine Facility"
+    }
+   ],
+   "scoreExpert": 2
+  },
+  {
+   "id": "anticorr",
+   "name": "Anti-corruption",
+   "status": "warn",
+   "statusLabel": "Tense",
+   "trend": "down",
+   "situation": [
+    "The Carthage case (NABU/SAPO): investigators allege a scheme involving SBU, National Police and Prosecutor General's Office officials. An SBU general was released on UAH 65m bail.",
+    "The SBU is running an internal review and has dismissed two officials. Media report the Prosecutor General was removed.",
+    "NABU's director says the bureau now has too many enemies. Protesters demand reform of the State Bureau of Investigation and an open contest for Prosecutor General."
+   ],
+   "diagnosis": "This tests whether the clash between the authorities and NABU will repeat. Any step that looks like pressure on the bureau would immediately hit EU funding, accession talks and public mood. The strong move is visible support for the investigation.",
+   "recs": [
+    {
+     "lever": "Public stance",
+     "title": "Openly back the investigation and pledge non-interference in NABU and SAPO",
+     "metric": "EU assessments; polling",
+     "effect": "Partners and the public see the authorities do not protect insiders; the risk of EU funding being paused falls.",
+     "impact": {
+      "anticorr": 0.7,
+      "finance": 0.2
+     }
+    },
+    {
+     "lever": "Appointments",
+     "title": "An open contest for Prosecutor General with international experts",
+     "effect": "An independent Prosecutor General raises trust in investigations and lowers the risk of political pressure on cases.",
+     "impact": {
+      "anticorr": 0.6
+     }
+    },
+    {
+     "lever": "Decree / NSDC",
+     "title": "Restrict security-service access to Safe City camera systems and log every query",
+     "what": "Case materials say suspects illegally tracked a car through this system",
+     "effect": "Surveillance systems stop being a tool for stalking; abuse becomes traceable.",
+     "impact": {
+      "anticorr": 0.3,
+      "society": 0.1
+     }
+    }
+   ],
+   "metrics": [
+    {
+     "label": "Corruption Perceptions Index",
+     "raw": 36,
+     "value": "36 / 100",
+     "better": "higher",
+     "thresholds": [
+      30,
+      35,
+      45,
+      55
+     ],
+     "weight": 0.2,
+     "conf": "confirmed",
+     "source": "Transparency International"
+    },
+    {
+     "label": "Pressure on anti-corruption bodies (assessment)",
+     "raw": 2,
+     "value": "notable",
+     "better": "higher",
+     "thresholds": [
+      1.5,
+      2.5,
+      3.5,
+      4.5
+     ],
+     "weight": 0.4,
+     "conf": "expert",
+     "source": "штаб"
+    },
+    {
+     "label": "Anti-corruption strategy adopted",
+     "raw": 0,
+     "value": "no",
+     "better": "higher",
+     "thresholds": [
+      0.2,
+      0.4,
+      0.6,
+      0.8
+     ],
+     "weight": 0.2,
+     "conf": "confirmed",
+     "source": "ВР"
+    },
+    {
+     "label": "Non-competitive spend in risk topics (by value)",
+     "raw": null,
+     "value": "auto",
+     "better": "lower",
+     "thresholds": [
+      20,
+      35,
+      50,
+      65
+     ],
+     "weight": 0.2,
+     "conf": "auto",
+     "source": "Prozorro",
+     "auto": "prozorro_noncomp"
+    }
+   ],
+   "scoreExpert": 2
+  },
+  {
+   "id": "diplomacy",
+   "name": "Diplomacy",
+   "status": "info",
+   "statusLabel": "Window open",
+   "trend": "up",
+   "situation": [
+    "Abu Dhabi, 10–11 November: fourth round of US–Russia–Ukraine talks. Kushner cites progress; no breakthrough.",
+    "Russia demands all of Donbas; Ukraine wants a line along the current front.",
+    "A prisoner exchange of 1,000–1,500 on each side is under discussion.",
+    "Russia opposes European participation in the next round.",
+    "EU: clusters 1, 2, 3 and 6 are open. Hungary again blocked clusters 4 and 5 on 10 November."
+   ],
+   "diagnosis": "ISW assesses the Kremlin sees these talks as a way to redraw Europe's security architecture. The risk: the US pushes for concessions on Donbas, using air-defence deliveries as leverage. The public rejects territorial concessions, which strengthens the negotiators' hand.",
+   "recs": [
+    {
+     "lever": "Negotiations",
+     "title": "Secure a prisoner exchange as a quick, measurable result of the round",
+     "metric": "Number released",
+     "effect": "Hundreds or thousands of Ukrainians come home, and the talks deliver a measurable result the public supports.",
+     "impact": {
+      "diplomacy": 0.4,
+      "society": 0.3
+     }
+    },
+    {
+     "lever": "Diplomacy",
+     "title": "Align with Europe: security guarantees are settled before territorial questions, not after",
+     "effect": "Ukraine is not left alone under pressure: guarantees become concrete before any concession.",
+     "impact": {
+      "diplomacy": 0.6
+     }
+    },
+    {
+     "lever": "Diplomacy",
+     "title": "Hungary: a bilateral track on minority rights and parallel informal work on clusters 4 and 5",
+     "metric": "Clusters opened by end of 2026",
+     "effect": "Opening clusters 4 and 5 speeds up EU accession and access to EU funds.",
+     "impact": {
+      "diplomacy": 0.5
+     }
+    }
+   ],
+   "metrics": [
+    {
+     "label": "EU clusters open",
+     "raw": 4,
+     "value": "4 of 6",
+     "better": "higher",
+     "thresholds": [
+      1,
+      2,
+      4,
+      6
+     ],
+     "weight": 0.3,
+     "conf": "confirmed",
+     "source": "УП"
+    },
+    {
+     "label": "Progress in talks (room's assessment)",
+     "raw": 3,
+     "value": "moderate",
+     "better": "higher",
+     "thresholds": [
+      1.5,
+      2.5,
+      3.5,
+      4.5
+     ],
+     "weight": 0.4,
+     "conf": "expert",
+     "source": "штаб"
+    },
+    {
+     "label": "€45bn EU loan: stage",
+     "raw": 1,
+     "value": "being tabled",
+     "better": "higher",
+     "thresholds": [
+      0.5,
+      1.5,
+      2.5,
+      3.5
+     ],
+     "weight": 0.3,
+     "conf": "single",
+     "source": "FT, bne"
+    }
+   ],
+   "scoreExpert": 3
+  },
+  {
+   "id": "society",
+   "name": "Society & demography",
+   "status": "ok",
+   "statusLabel": "Resilient",
+   "trend": "up",
+   "situation": [
+    "KIIS: 62% trust the president (a rally effect amid US pressure); most reject handing over Donbas.",
+    "4.38m Ukrainians under temporary protection in the EU until March 2028. Since 31 July new applicants must show they met military obligations.",
+    "Refinery strikes: Russian refining −30%, a fuel crisis, tanks burned at Ust-Luga. Crude exports, meanwhile, are rising."
+   ],
+   "diagnosis": "Society is holding, but trust is a resource that mobilisation decisions and corruption scandals use up. Refinery strikes cause a domestic fuel crisis in Russia but do not yet cut its export revenue, because oil is expensive.",
+   "recs": [
+    {
+     "lever": "Diplomacy",
+     "title": "Use the rise in Russian oil exports to argue for new sanctions on the shadow fleet and export infrastructure",
+     "metric": "Russian oil exports, bbl/day; IEA revenue",
+     "effect": "Lower oil revenue means less money for Russia's war, including strikes on Ukraine's grid.",
+     "impact": {
+      "diplomacy": 0.2,
+      "airdef": 0.2,
+      "energy": 0.2
+     }
+    },
+    {
+     "lever": "Cabinet + Social Policy Ministry",
+     "title": "Prepare a return programme for 2028: housing, jobs, diploma recognition, tax incentives",
+     "metric": "Intentions to return (UNHCR surveys)",
+     "effect": "Even a partial return of the 4.38m citizens eases labour shortages and demographic losses.",
+     "impact": {
+      "society": 0.4,
+      "economy": 0.3
+     }
+    }
+   ],
+   "metrics": [
+    {
+     "label": "Trust in the president",
+     "raw": 62,
+     "value": "62%",
+     "better": "higher",
+     "thresholds": [
+      30,
+      40,
+      50,
+      60
+     ],
+     "weight": 0.3,
+     "conf": "confirmed",
+     "source": "КМИС"
+    },
+    {
+     "label": "Willingness to resist (assessment)",
+     "raw": 4,
+     "value": "high",
+     "better": "higher",
+     "thresholds": [
+      1.5,
+      2.5,
+      3.5,
+      4.5
+     ],
+     "weight": 0.4,
+     "conf": "expert",
+     "source": "КМИС, штаб"
+    },
+    {
+     "label": "Ukrainians protected in the EU, m",
+     "raw": 4.38,
+     "value": "4.38m",
+     "better": "lower",
+     "thresholds": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "weight": 0.3,
+     "conf": "confirmed",
+     "source": "ЕС"
+    }
+   ],
+   "scoreExpert": 4
+  }
+ ],
+ "priorities": [
+  {
+   "title": "Energy and air defence: NSDC meeting",
+   "text": "Decide on a distributed-generation programme for critical infrastructure and mass deployment of cheap interception."
+  },
+  {
+   "title": "The €45bn EU loan",
+   "text": "Call EU leaders after the 18 November proposal. Target approval in December."
+  },
+  {
+   "title": "Carthage: a public stance",
+   "text": "A statement backing NABU, an open contest for Prosecutor General, pressure on the Rada over the anti-corruption strategy."
+  },
+  {
+   "title": "Talks: prisoner exchange",
+   "text": "Lock in a 1,000-for-1,000+ exchange and push for European participation in the next round."
+  },
+  {
+   "title": "Patriot via PURL",
+   "text": "Publicly demand a paid vs delivered reconciliation together with Germany, Norway and Canada."
+  }
+ ],
+ "journal": [
+  {
+   "rec": "Distributed generation",
+   "check": "NSDC or Cabinet decision; MW installed",
+   "due": "2026-12-15",
+   "status": "pending"
+  },
+  {
+   "rec": "€45bn EU loan",
+   "check": "Approved by the European Council",
+   "due": "2026-12-19",
+   "status": "pending"
+  },
+  {
+   "rec": "Anti-corruption strategy",
+   "check": "Adopted by the Rada",
+   "due": "2026-11-30",
+   "status": "pending"
+  },
+  {
+   "rec": "Prisoner exchange",
+   "check": "Carried out; numbers",
+   "due": "2026-12-15",
+   "status": "pending"
+  },
+  {
+   "rec": "Patriot",
+   "check": "Delivery schedule published; missiles per month",
+   "due": "2026-12-31",
+   "status": "pending"
+  },
+  {
+   "rec": "EU clusters 4 and 5",
+   "check": "Opened",
+   "due": "2026-12-31",
+   "status": "pending"
+  },
+  {
+   "rec": "Forecast: push on Druzhkivka",
+   "check": "Russia launches an offensive after the Kostiantynivka lull",
+   "due": "2026-12-15",
+   "status": "pending"
+  }
+ ],
+ "gaps": [
+  "No official October inflation figure from the State Statistics Service found.",
+  "No November KIIS polls yet.",
+  "ISW reporting for 15–17 November is incomplete.",
+  "Casualty and mobilisation data are classified."
+ ],
+ "sources": [
+  {
+   "title": "ISW, 13 Nov 2026 (Kyiv Post)",
+   "url": "https://www.kyivpost.com/post/90095"
+  },
+  {
+   "title": "Front line 15–16 Nov per ISW (24tv)",
+   "url": "https://24tv.ua/ru/situacija-na-fronte-1516-nojabrja-2026-goda-po-dannym-isw-gde-nastupala-rossija-udalos-li-vsu-prodvinutsja_n3181848"
+  },
+  {
+   "title": "116 attacks on the grid in a week (Ukrainska Pravda)",
+   "url": "https://www.pravda.com.ua/eng/news/2026/11/16/8063094/"
+  },
+  {
+   "title": "All-day blackouts (Euromaidan Press)",
+   "url": "https://euromaidanpress.com/2026/11/13/ukraines-grid-operator-kept-all-day-blackouts-in-parts-of-the-country-after-russias-latest-strikes-on-the-grid/"
+  },
+  {
+   "title": "NBU: 16.5% rate, inflation forecast",
+   "url": "https://h.ua/2026/11/06/nbu-pidvyshchyv-stavku-do-16-5-prognoz-inflatsii-2026"
+  },
+  {
+   "title": "October inflation (companion.ua)",
+   "url": "https://companion.ua/infliatsiia-v-ukraini-zhovten-2026-roku/"
+  },
+  {
+   "title": "€45bn EU loan (bne IntelliNews)",
+   "url": "https://www.intellinews.com/eu-readies-45bn-budget-backed-loan-for-ukraine-as-imf-puts-gap-at-50bn-485612"
+  },
+  {
+   "title": "2027 budget gap (sud.ua)",
+   "url": "https://sud.ua/en/news/ukraine/373494-ukraini-na-2027-rik-potribno-526-mlrd-dlia-pokryttia-defitsytu-biudzhetu-20-mlrd-uzhe-pidtverdzheno-shche-326-mlrd-shukaiut"
+  },
+  {
+   "title": "Abu Dhabi talks (Euronews)",
+   "url": "https://www.euronews.com/2026/11/11/ukraine-russia-peace-talks-enter-second-day-with-territory-and-security-guarantees-in-focu"
+  },
+  {
+   "title": "Kushner on progress (Globe and Mail)",
+   "url": "https://www.theglobeandmail.com/world/article-ukraine-russia-peace-talks-kushner/"
+  },
+  {
+   "title": "Air-defence delays (Kyiv Independent)",
+   "url": "https://kyivindependent.com/its-significant-ukraine-fears-us-is-withholding-allied-funded-air-defense-supplies-to-pressure-kyiv/"
+  },
+  {
+   "title": "500 PAC-3 sale (Military Times)",
+   "url": "https://www.militarytimes.com/news/pentagon-congress/2026/11/02/us-approves-2-1-billion-patriot-missile-sale-to-ukraine/"
+  },
+  {
+   "title": "Patriot licence (Euromaidan Press)",
+   "url": "https://euromaidanpress.com/2026/11/15/pentagon-stalls-ukraines-license-to-produce-patriot-air-defense-missiles"
+  },
+  {
+   "title": "Carthage: SBU review (Ukrainska Pravda)",
+   "url": "https://www.pravda.com.ua/news/2026/11/13/8062788/"
+  },
+  {
+   "title": "NABU director on Carthage (Ukrainska Pravda)",
+   "url": "https://www.pravda.com.ua/news/2026/11/17/8063271/"
+  },
+  {
+   "title": "Protest: SBI and Prosecutor General (ZMINA)",
+   "url": "https://zmina.info/news/na-tli-novyh-vykryttiv-nabu-v-kyyevi-vymagaly-reformuvannya-dbr-i-prozorogo-konkursu-na-posadu-genprokurora/"
+  },
+  {
+   "title": "Reverse subsidies for communities (UNIAN)",
+   "url": "https://www.unian.ua/economics/other/deputati-napolyagli-na-zberezhenni-v-byudzhetah-gromad-64-pdfo-ta-koshtiv-reversnoji-dotaciji-u-zvernenni-do-koreckogo-13562724.html"
+  },
+  {
+   "title": "AWOL: simplified return ends (Obozrevatel)",
+   "url": "https://www.obozrevatel.com/ukr/section-novosti-obschestvo/news-sproshchena-protsedura-bilshe-ne-diye-yak-viyskovi-mozhut-povernutysya-iz-szch-17-11-2026.html"
+  },
+  {
+   "title": "GDP forecasts (Interfax)",
+   "url": "https://interfax.com/newsroom/top-stories/117041/"
+  },
+  {
+   "title": "EBRD on growth",
+   "url": "https://www.ebrd.com/home/news-and-events/news/2026/ukraine-faces-slower-growth-as-war-drags-on.html"
+  },
+  {
+   "title": "KIIS: trust, October (LB.ua)",
+   "url": "https://lb.ua/society/2026/10/20/774730_kmis_proviv_nove_opituvannya_pro.html"
+  },
+  {
+   "title": "IEA: Russian oil revenue (gCaptain)",
+   "url": "https://gcaptain.com/russia-oil-revenues-hit-five-month-high-on-crude-rally-iea-says/"
+  },
+  {
+   "title": "Russian oil exports (Bloomberg)",
+   "url": "https://www.bloomberg.com/news/articles/2026-11-17/russia-s-oil-exports-hit-their-highest-since-july-as-drones-hit-refineries"
+  },
+  {
+   "title": "Russian refining −30% (Ukrainska Pravda)",
+   "url": "https://www.pravda.com.ua/eng/news/2026/11/10/8062172/"
+  },
+  {
+   "title": "Hungary blocks clusters 4 and 5 (Ukrainska Pravda)",
+   "url": "https://www.pravda.com.ua/eng/news/2026/11/10/8062207/"
+  },
+  {
+   "title": "Temporary protection to 2028 (EEAS)",
+   "url": "https://www.eeas.europa.eu/delegations/ukraine/eu-countries-agree-extend-temporary-protection-those-fleeing-ukraine-until-march-2028_en"
+  },
+  {
+   "title": "Midas case investigation closed (Babel)",
+   "url": "https://babel.ua/news/131496-nabu-ta-sap-zavershili-rozsliduvannya-spravi-midas-pro-korupciyu-v-energetici"
+  },
+  {
+   "title": "CPI 2025: Ukraine scores 36 (TI Ukraine)",
+   "url": "https://ti-ukraine.org/en/research/corruption-perceptions-index-2025/"
+  },
+  {
+   "title": "NABU & SAPO H1 2026 results",
+   "url": "https://www.bessarabianews.com.ua/nabu-ta-sap-u-pershomu-pivrichchi-2026-roku-360-rozsliduvan-107-pidozr-ta-ponad-2-mlrd-grn-ekonomichnogo-efektu/"
+  },
+  {
+   "title": "Drones: UAH 254m loss (AIN)",
+   "url": "https://ain.ua/2026/08/13/sprava-pro-roztratu-254-mln-grn-na-dronax/"
+  },
+  {
+   "title": "Kyiv oblast substation protection: UAH 2.3bn",
+   "url": "https://kiev.informator.ua/uk/zahist-pidstanciy-na-kijivshchini-podorozhchav-do-2-3-mlrd-griven-roboti-planuyut-zavershiti-do-grudnya"
+  },
+  {
+   "title": "Kherson substation protection (Nikcenter)",
+   "url": "https://nikcenter.org/2026/10/hersonska-sluzhba-vidnovlennya-dodala-48-mln-na-zahyst-pidstanczij/"
+  },
+  {
+   "title": "Losses from shadow schemes (CASE)",
+   "url": "https://cost.ua/ponad-piv-tryljona-gryven-skladaye-suma-vtrat-vid-tinovyh-shem-zarplaty-v-konvertah-i-siryj-import-golovni-dzherela-vtrat-byudzhetu/"
+  },
+  {
+   "title": "Recruitment-centre schemes: the price of leaving (Ukrpulse)",
+   "url": "https://ukrpulse.org.ua/2026/ukraina/koruptsijna-skhema-ttsk-pokazala-spravzhniu-tsinu-vtechi-vid-mobilizatsii/"
+  },
+  {
+   "title": "Interceptor drone costs (Fakty)",
+   "url": "https://fakty.com.ua/ua/ukraine/20260424-ukrayinski-drony-zbyly-ponad-3-tys-shahediv-yak-pratsyuye-p1-sun/"
+  }
+ ],
+ "corruption": {
+  "lead": "Corruption is not a separate area but a tax on all the others. This view shows where it hits hardest, what known cases cost and what the country could have bought with that money.",
+  "kpis": [
+   {
+    "label": "Corruption Perceptions Index 2025",
+    "value": "36 / 100",
+    "sub": "rank 104 of 182 · +1 point",
+    "dir": "neutral",
+    "source": "Transparency International",
+    "conf": "confirmed"
+   },
+   {
+    "label": "NABU & SAPO, H1 2026",
+    "value": "360 / 107 / 76",
+    "sub": "investigations / suspects / convicted",
+    "dir": "neutral",
+    "source": "НАБУ",
+    "conf": "confirmed"
+   },
+   {
+    "label": "Recovered and saved",
+    "value": "UAH 2.06bn",
+    "sub": "H1 2026 · incl. UAH 726m saved on drones",
+    "dir": "good",
+    "source": "НАБУ",
+    "conf": "confirmed"
+   },
+   {
+    "label": "Customs and grey imports",
+    "value": "UAH 110–125bn",
+    "sub": "budget losses per year, estimate",
+    "dir": "bad",
+    "source": "CASE «Ціна держави»",
+    "conf": "estimate"
+   },
+   {
+    "label": "Midas case, Energoatom",
+    "value": "> $100m",
+    "sub": "laundered, according to investigators",
+    "dir": "bad",
+    "source": "НАБУ",
+    "conf": "single"
+   },
+   {
+    "label": "Drone overpricing",
+    "value": "60–90%",
+    "sub": "above market · UAH 254m loss",
+    "dir": "bad",
+    "source": "НАБУ",
+    "conf": "single"
+   }
+  ],
+  "systemic": [
+   {
+    "label": "Customs schemes and grey imports",
+    "low": 110,
+    "high": 125,
+    "source": "CASE «Ціна держави»",
+    "url": "https://cost.ua/ponad-piv-tryljona-gryven-skladaye-suma-vtrat-vid-tinovyh-shem-zarplaty-v-konvertah-i-siryj-import-golovni-dzherela-vtrat-byudzhetu/"
+   },
+   {
+    "label": "Cargo schemes, MP's estimate",
+    "low": 300,
+    "high": 300,
+    "source": "Я. Железняк",
+    "url": "https://www.facenews.ua/news/2026/542084/"
+   },
+   {
+    "label": "Car imports, Rada inquiry",
+    "low": 20,
+    "high": 20,
+    "source": "ТСК ВР",
+    "url": "https://www.facenews.ua/video/2026/326098/"
+   },
+   {
+    "label": "Shadow fuel market",
+    "low": 12,
+    "high": 15,
+    "source": "Экономическая правда",
+    "url": "https://epravda.com.ua/finances/tinizaciya-ekonomiki-ukrajini-vtrati-byudzhetu-ta-shlyahi-virishennya-u-2026-824132/"
+   }
+  ],
+  "cases": [
+   {
+    "sphere": "energy",
+    "uah": 4539000000,
+    "title": "Midas: kickbacks at Energoatom",
+    "amount": "> $100m (≈ UAH 4.5bn)",
+    "detail": "Investigators allege contractors were made to pay 10–15% of contract value. Energoatom has still not been recognised as a victim.",
+    "stage": "Investigation closed, 4 Nov 2026",
+    "url": "https://babel.ua/news/131496-nabu-ta-sap-zavershili-rozsliduvannya-spravi-midas-pro-korupciyu-v-energetici"
+   },
+   {
+    "sphere": "anticorr",
+    "uah": 460000000,
+    "title": "Kozyn cottage settlement",
+    "amount": "> UAH 460m",
+    "detail": "Suspicion of money laundering against a former head of the President's Office and six others. Guilt not proven in court.",
+    "stage": "Suspicion",
+    "url": "https://www.bessarabianews.com.ua/nabu-ta-sap-u-pershomu-pivrichchi-2026-roku-360-rozsliduvan-107-pidozr-ta-ponad-2-mlrd-grn-ekonomichnogo-efektu/"
+   },
+   {
+    "sphere": "airdef",
+    "uah": 254000000,
+    "title": "Drones for the Defence Forces (State Special Communications)",
+    "amount": "UAH 254m",
+    "detail": "Prices for DJI Mavic 3 and Autel Evo Max 4T were 60–90% above market; the difference went to controlled firms, including abroad.",
+    "stage": "Investigation closed, Oct 2026",
+    "url": "https://ain.ua/2026/08/13/sprava-pro-roztratu-254-mln-grn-na-dronax/"
+   },
+   {
+    "sphere": "energy",
+    "uah": 48000000,
+    "title": "Substation protection in Kherson oblast",
+    "amount": "UAH 48m",
+    "detail": "Closed contracts with a firm whose review was done by a state company headed by the founder's brother. Media investigation.",
+    "stage": "Media investigation",
+    "url": "https://nikcenter.org/2026/10/hersonska-sluzhba-vidnovlennya-dodala-48-mln-na-zahyst-pidstanczij/"
+   },
+   {
+    "sphere": "front",
+    "uah": 32000000,
+    "title": "Ukroboronprom",
+    "amount": "> UAH 32m",
+    "detail": "Investigators put losses above UAH 32m; about UAH 19m more was prevented.",
+    "stage": "Investigation",
+    "url": "https://ukrainepravo.com/law-practice/pravookhoronnykh-organiv/vykryttia-koruptsiinykh-parvoporushen-u-sferi-enerhetyky-oborony-ta-sered-vysokoposadovtsiv-rezultat"
+   },
+   {
+    "sphere": "army",
+    "uah": 0,
+    "title": "Recruitment-centre and medical-board schemes",
+    "amount": "$4–8k per person",
+    "detail": "In one Kyiv scheme ≥100 men were removed from the register and 31 left the country; organisers' income is put at $60k a month.",
+    "stage": "Dozens of SBI, SBU and police cases",
+    "url": "https://ukrpulse.org.ua/2026/ukraina/koruptsijna-skhema-ttsk-pokazala-spravzhniu-tsinu-vtechi-vid-mobilizatsii/"
+   },
+   {
+    "sphere": "anticorr",
+    "uah": 0,
+    "title": "Carthage: SBU, police, Prosecutor General's Office",
+    "amount": "amount undisclosed · UAH 65m bail",
+    "detail": "Investigators allege a criminal group of 12+ people, including an SBU general, with illegal tracking via Safe City cameras.",
+    "stage": "Suspicions, Nov 2026",
+    "url": "https://www.pravda.com.ua/news/2026/11/13/8062788/"
+   }
+  ],
+  "spheres": [
+   {
+    "id": "energy",
+    "risk": 5,
+    "schemes": [
+     "10–15% kickbacks on state-company contracts",
+     "Substation protection without tenders and at inflated prices",
+     "Closed contracts justified by security"
+    ],
+    "without": "The Midas case alone (≈ UAH 4.5bn) equals about 50 concrete shelters for 110 kV substations at UAH 90m each. For comparison, all priority substations in Kyiv oblast need UAH 2.3bn. Without corruption, grid protection could have been finished before winter."
+   },
+   {
+    "id": "airdef",
+    "risk": 4,
+    "schemes": [
+     "Inflated prices for drones and parts",
+     "Middlemen between maker and buyer"
+    ],
+    "without": "With a 60–90% markup, every UAH 100 buys UAH 53–63 of real drones. Without corruption the same budget would buy 1.6–1.9 times more equipment. The UAH 254m loss equals about 220 interceptor drones at $25k."
+   },
+   {
+    "id": "front",
+    "risk": 4,
+    "schemes": [
+     "Fortifications paid for but not built",
+     "Inflated prices in the defence industry"
+    ],
+    "without": "Fortifications are built on time and to spec, and troops have prepared positions before an offensive. The room found no 2026 fortification cases."
+   },
+   {
+    "id": "army",
+    "risk": 5,
+    "schemes": [
+     "Removal from register for $4–8k",
+     "Fake medical-board findings",
+     "Smuggling abroad for $10–15k"
+    ],
+    "without": "Mobilisation is seen as fair: it is no longer the people without money who serve. One Kyiv scheme alone removed ≥100 men from the reserve, a whole replacement company."
+   },
+   {
+    "id": "economy",
+    "risk": 4,
+    "schemes": [
+     "Grey imports and cargo schemes",
+     "Under-declared customs value",
+     "Shadow fuel market"
+    ],
+    "without": "Honest businesses stop losing to smugglers on price. The budget gains UAH 110–125bn a year, about 8% of the 2027 external financing gap."
+   },
+   {
+    "id": "finance",
+    "risk": 3,
+    "schemes": [
+     "Misuse of funds",
+     "Inflated reconstruction budgets"
+    ],
+    "without": "Every high-profile case is an argument against aid in EU capitals. Without corruption scandals, the €45bn loan is decided faster and with fewer conditions."
+   },
+   {
+    "id": "anticorr",
+    "risk": 5,
+    "schemes": [
+     "Corruption inside law enforcement",
+     "Laundering through real estate"
+    ],
+    "without": "Law enforcement protects the law, not schemes, and NABU cases meet no resistance. Trust in the state, the key wartime resource, stops being wasted."
+   },
+   {
+    "id": "diplomacy",
+    "risk": 2,
+    "schemes": [
+     "Reputational damage from scandals"
+    ],
+    "without": "Hungary and other sceptics find it harder to block clusters on rule-of-law grounds, and Ukraine's negotiating position is stronger."
+   },
+   {
+    "id": "society",
+    "risk": 3,
+    "schemes": [
+     "Petty corruption in health and education",
+     "Disability and benefits schemes"
+    ],
+    "without": "People see the rules apply to everyone, which raises willingness to bear the war's burdens and refugees' readiness to return."
+   }
+  ],
+  "recs": [
+   {
+    "lever": "Decree / Cabinet",
+    "title": "Publish all energy-protection and defence contracts with a 3–6 month delay",
+    "metric": "Share of contracts published",
+    "effect": "Overpricing becomes visible to journalists and auditors; Prozorro's experience suggests openness cuts prices by 10–15%.",
+    "impact": {
+     "anticorr": 0.5,
+     "energy": 0.2,
+     "front": 0.2
+    }
+   },
+   {
+    "lever": "Bill",
+    "title": "Mandatory price benchmarks for drones and parts via an e-catalogue",
+    "metric": "Contract price vs catalogue price",
+    "effect": "A 60–90% markup becomes impossible; the same budget buys noticeably more drones.",
+    "impact": {
+     "anticorr": 0.3,
+     "airdef": 0.4
+    }
+   },
+   {
+    "lever": "Appointments + pressure on Cabinet",
+    "title": "Reboot customs: open contest for its head, automated clearance, sanctions on cargo carriers",
+    "metric": "Customs revenue relative to imports",
+    "effect": "The Rada inquiry estimates closing schemes adds UAH 15–20bn in the first year and up to UAH 110–125bn over time.",
+    "impact": {
+     "economy": 0.5,
+     "finance": 0.5,
+     "anticorr": 0.3
+    }
+   },
+   {
+    "lever": "Decree / Defence Ministry",
+    "title": "Digital mobilisation: random assignment of medical-board doctors, video recording, all decisions only through Oberih with an audit log",
+    "metric": "Bribery cases in recruitment centres and boards per month",
+    "effect": "The points where one person can sell another's fate disappear; mobilisation becomes fairer and meets less resistance.",
+    "impact": {
+     "army": 0.5,
+     "anticorr": 0.3,
+     "society": 0.3
+    }
+   }
+  ],
+  "note": "All cases are as reported by investigators and media. A suspicion is not proof of guilt; only a court decides. Conversions into shelters and interceptors illustrate scale and are not precise estimates.",
+  "constants": {
+   "shelterUah": 90000000,
+   "interceptorUsd": 25000,
+   "shelterSrc": "average cost of protecting a 110 kV substation, Development Ministry",
+   "interceptorSrc": "$20–30k per interceptor, Defence Ministry estimate"
+  }
+ },
+ "regions": {
+  "crimea": "occupied",
+  "donetsk": "partial",
+  "luhansk": "partial",
+  "zaporizhzhia": "partial",
+  "kherson": "partial",
+  "kharkiv": "front",
+  "sumy": "front",
+  "dnipro": "front",
+  "chernihiv": "front"
+ },
+ "horizon": "3 months",
+ "corrections": []
+}
