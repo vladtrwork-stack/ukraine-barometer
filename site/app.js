@@ -1274,9 +1274,12 @@
     L = I18N[LANG];
     renderChrome();
     try {
+      const man = await getJSON("data/manifest.json", true);
+      const has = (f) => !man || man.files.includes(f);
+      const opt = (f) => has(f) ? getJSON(`data/${f}`, true) : Promise.resolve(null);
       const [idx, ind, front, proc, hist, config, alerts] = await Promise.all([getJSON("data/briefs/index.json"), getJSON("data/indicators.json"),
-        getJSON("data/front.json", true), getJSON("data/procurement.json", true), getJSON("data/history.json", true), getJSON("config.json", true), getJSON("data/alerts.json", true)]);
-      const [oblasts, frontline, lights, media] = await Promise.all(["oblasts", "frontline", "lights", "media"].map((n) => getJSON(`data/${n}.json`, true)));
+        opt("front.json"), opt("procurement.json"), opt("history.json"), getJSON("config.json", true), opt("alerts.json")]);
+      const [oblasts, frontline, lights, media] = await Promise.all(["oblasts", "frontline", "lights", "media"].map((n) => opt(`${n}.json`)));
       state.hist = hist; state.config = config;
       state.list = [...idx.briefs].sort((a, c) => a.id.localeCompare(c.id));
       state.ctx = { ind, front, proc, alerts, oblasts, frontline, lights, media };

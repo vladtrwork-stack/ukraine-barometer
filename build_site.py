@@ -229,6 +229,8 @@ def build():
             (d / fn).write_text(issue_page(bb, lang, ix, sc, base), encoding="utf-8")
     if base:
         (SITE / "sitemap.xml").write_text(f"<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>{base}/</loc><lastmod>{idx[-1]['id']}</lastmod></url>" + "".join(f"<url><loc>{u}</loc></url>" for u in issue_urls) + "</urlset>", encoding="utf-8")
+    # Список имеющихся файлов данных — сайт не запрашивает отсутствующие (без 404 в консоли)
+    (DATA / "manifest.json").write_text(json.dumps({"files": sorted(p.name for p in DATA.glob("*.json"))}), encoding="utf-8")
     bust_cache()
     print(f"export: {len(rows)} строк; RSS ×3")
 
