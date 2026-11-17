@@ -45,7 +45,16 @@ def main(force=False):
             print("  media: свежие (моложе 3 дней) — пропуск")
             return old
     res = {}
+    # Накопление между запусками: GDELT часто ограничивает частоту, поэтому свежие (≤3 дней) сферы берём из кэша
+    cache_f = ROOT / "data" / "media_cache.json"
+    cache = json.loads(cache_f.read_text(encoding="utf-8")) if cache_f.exists() else {}
+    today = dt.date.today()
+    for sphere, c in cache.items():
+        if (today - dt.date.fromisoformat(c["date"])).days <= 3:
+            res[sphere] = c["data"]
     for sphere, q in Q.items():
+        if sphere in res:
+            continue
         vol = get(q, "timelinevolraw"); time.sleep(15)
         tone = get(q, "timelinetone"); time.sleep(15)
         if not vol:
@@ -61,6 +70,9 @@ def main(force=False):
                        "tone": round(sum(tw) / len(tw), 2) if tw else None, "tonePrev": round(sum(tp) / len(tp), 2) if tp else None,
                        "series": series}
         print(f"  media {sphere}: {wk} публ., тон {res[sphere]['tone']}")
+        cache[sphere] = {"date": today.isoformat(), "data": res[sphere]}
+        cache_f.parent.mkdir(exist_ok=True)
+        cache_f.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
     out = {"updated": dt.date.today().isoformat(), "source": "GDELT DOC 2.0", "scope": "world", "spheres": res}
     if len(res) < 7:
         print(f"  media: данные только по {len(res)} сферам — не публикуем, попробуем в следующий раз")
