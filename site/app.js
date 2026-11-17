@@ -14,7 +14,7 @@
       prob: "Вероятность", brier: "Точность прогнозов (Brier)", brierNote: (n) => `по ${n} проверенным прогнозам; 0 — идеально, 0,25 — как подбрасывание монеты`,
       avgConf: (n, p) => `${n} прогнозов, средняя уверенность ${p}%`,
       compare: "Сравнить с выпуском", compareNone: "Сравнение появится со второго выпуска.", delta: "Изменение",
-      search: "Поиск по выпускам", searchPh: "Поиск: энергетика, НАБУ, кредит…", noResults: "Ничего не найдено",
+      search: "Поиск по выпускам", searchPh: "Поиск по выпускам…", noResults: "Ничего не найдено",
       validation: "Проверка методики на истории", subscribe: "Подписаться в Telegram", shareIssue: "Ссылка на этот выпуск",
       trendTitle: "Динамика индекса", trendNote: "пунктир — реконструкция до первого выпуска", sens: (a, b) => `при весах ±20%: ${a}–${b}`,
       about: "О проекте", aboutLead: "«Барометр Украины» — независимый открытый проект. Каждую неделю он оценивает 9 сфер жизни страны по открытым данным и публикует предложения, которые могли бы улучшить ситуацию.",
@@ -92,7 +92,7 @@
       prob: "Ймовірність", brier: "Точність прогнозів (Brier)", brierNote: (n) => `за ${n} перевіреними прогнозами; 0 — ідеально, 0,25 — як підкидання монети`,
       avgConf: (n, p) => `${n} прогнозів, середня впевненість ${p}%`,
       compare: "Порівняти з випуском", compareNone: "Порівняння з'явиться з другого випуску.", delta: "Зміна",
-      search: "Пошук у випусках", searchPh: "Пошук: енергетика, НАБУ, кредит…", noResults: "Нічого не знайдено",
+      search: "Пошук у випусках", searchPh: "Пошук у випусках…", noResults: "Нічого не знайдено",
       validation: "Перевірка методики на історії", subscribe: "Підписатися в Telegram", shareIssue: "Посилання на цей випуск",
       trendTitle: "Динаміка індексу", trendNote: "пунктир — реконструкція до першого випуску", sens: (a, b) => `за вагами ±20%: ${a}–${b}`,
       about: "Про проєкт", aboutLead: "«Барометр України» — незалежний відкритий проєкт. Щотижня він оцінює 9 сфер життя країни за відкритими даними й публікує пропозиції, які могли б покращити ситуацію.",
@@ -170,7 +170,7 @@
       prob: "Probability", brier: "Forecast accuracy (Brier)", brierNote: (n) => `over ${n} resolved forecasts; 0 is perfect, 0.25 is a coin toss`,
       avgConf: (n, p) => `${n} forecasts, average confidence ${p}%`,
       compare: "Compare with issue", compareNone: "Comparison becomes available from the second issue.", delta: "Change",
-      search: "Search issues", searchPh: "Search: energy, NABU, loan…", noResults: "Nothing found",
+      search: "Search issues", searchPh: "Search issues…", noResults: "Nothing found",
       validation: "Testing the method on history", subscribe: "Subscribe on Telegram", shareIssue: "Link to this issue",
       trendTitle: "Index over time", trendNote: "dashed — reconstruction before the first issue", sens: (a, b) => `with weights ±20%: ${a}–${b}`,
       about: "About", aboutLead: "Ukraine Barometer is an independent open project. Every week it assesses nine areas of national life from open data and publishes proposals that could improve the situation.",
@@ -976,6 +976,13 @@
       }));
     };
     inp.oninput = show;
+    if (!wireSearch.hot) {
+      wireSearch.hot = true;
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || "")) { e.preventDefault(); $("#search")?.focus(); }
+      });
+      document.addEventListener("click", (e) => { if (!e.target.closest(".search-wrap")) $("#search-res").hidden = true; });
+    }
     inp.onkeydown = (e) => { if (e.key === "Escape") { inp.value = ""; box.hidden = true; } };
   }
 
