@@ -520,3 +520,8 @@ td a:hover b{text-decoration:underline}
 .s-kbd{position:absolute;right:9px;font-family:var(--f-mono);font-size:11px;color:var(--faint);border:1px solid var(--line-2);border-radius:5px;padding:0 6px;line-height:18px;pointer-events:none}
 .search-wrap input:focus~.s-kbd{display:none}
 @media (max-width:980px){.s-kbd{display:none}}
+
+/* hidden всегда скрывает (иначе display у классов его перебивает) */
+[hidden]{display:none!important}
+.side-foot{padding-top:2px}
+.search-wrap{margin-top:auto}
