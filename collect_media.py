@@ -1,4 +1,4 @@
-"""Внимание медиа по сферам — открытый API GDELT DOC 2.0 (украинские СМИ, sourcecountry:UP).
+"""Внимание мировых медиа к Украине по сферам — открытый API GDELT DOC 2.0 (все источники, запросы «<тема> Ukraine»).
 
 Для каждой сферы: число публикаций в день и средний тон (от −10 до +10) за 12 недель.
 Пишет site/data/media.json: {sphere: {"week": публикаций за 7 дней, "prev": за предыдущие 7,
@@ -26,7 +26,7 @@ Q = {
 
 
 def get(query, mode):
-    url = API + "?" + urllib.parse.urlencode({"query": f"{query} sourcecountry:UP", "mode": mode, "timespan": "12w", "format": "json"})
+    url = API + "?" + urllib.parse.urlencode({"query": f"{query} Ukraine", "mode": mode, "timespan": "12w", "format": "json"})
     for a in range(4):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "barometer/1.0 (open research)"}), timeout=90) as r:
@@ -46,8 +46,8 @@ def main(force=False):
             return old
     res = {}
     for sphere, q in Q.items():
-        vol = get(q, "timelinevolraw"); time.sleep(10)
-        tone = get(q, "timelinetone"); time.sleep(10)
+        vol = get(q, "timelinevolraw"); time.sleep(15)
+        tone = get(q, "timelinetone"); time.sleep(15)
         if not vol:
             print(f"  media {sphere}: нет данных"); continue
         v = [x[1] for x in vol]
@@ -61,8 +61,10 @@ def main(force=False):
                        "tone": round(sum(tw) / len(tw), 2) if tw else None, "tonePrev": round(sum(tp) / len(tp), 2) if tp else None,
                        "series": series}
         print(f"  media {sphere}: {wk} публ., тон {res[sphere]['tone']}")
-    out = {"updated": dt.date.today().isoformat(), "source": "GDELT DOC 2.0", "spheres": res}
-    if res:
+    out = {"updated": dt.date.today().isoformat(), "source": "GDELT DOC 2.0", "scope": "world", "spheres": res}
+    if len(res) < 7:
+        print(f"  media: данные только по {len(res)} сферам — не публикуем, попробуем в следующий раз")
+    if len(res) >= 7:  # неполные данные не публикуем
         OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     return out
 
