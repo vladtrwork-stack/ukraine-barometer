@@ -3,6 +3,10 @@ on:
   push:
     branches: [main]
     paths: ["site/**", "build_site.py", "make_card.py"]
+  # Коммиты бота из «Сбора данных» сами не запускают другие workflow — поэтому публикуем по его завершении
+  workflow_run:
+    workflows: ["Сбор данных"]
+    types: [completed]
   workflow_dispatch:
 permissions:
   contents: read
