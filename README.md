@@ -50,7 +50,9 @@ python -m http.server 8000 --directory site
 | `recs[]` | `lever` (рычаг президента), `title`, `what`, `cost`, `metric`, `effect` (как предложение улучшит ситуацию) |
 | `corruption` | `lead`, `kpis[]`, `systemic[]` (`low`/`high`, млрд грн/год), `cases[]` (`uah` — сумма для пересчёта), `spheres[]` (`risk` 1–5, `schemes`, `without`), `recs[]`, `note`, `constants` |
 | `priorities[]` | `title`, `text` |
-| `journal[]` | `rec` (ключ, по нему записи сливаются между неделями), `check`, `due`, `status`, `result` |
+| `journal[]` | `rec` (ключ, по нему записи сливаются между неделями), `check`, `due`, `status`, `result`, `prob` (вероятность 0–1) |
+| `scenarios[]` | `id` (base/pess/opt), `prob`, `index` [мин, макс], `name`, `text`, `triggers[]` |
+| `russia` | `lead`, `kpis[]` (как kpis), `note` |
 | `gaps[]`, `sources[]` | пробелы в данных; `{title, url}` |
 
 ## Хостинг
@@ -92,3 +94,12 @@ Telegram: создать бота у @BotFather, добавить его в ка
 Секреты репозитория: `ALERTS_TOKEN` (alerts.in.ua), `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`; переменная `SITE_URL`.
 `site/config.json`: `siteUrl` и `repoUrl` (для кнопки «Сообщить об ошибке», RSS и виджета).
 Дополнительно: `build_site.py` (проверка + CSV/RSS/latest.json), `site/embed.html` (виджет), `site/data/history.json` (реконструкция до первого выпуска).
+
+## Ревью и защита от сбоев
+
+- Агент открывает pull request из ветки `weekly/<дата>`; `pr-check.yml` проверяет данные. Одобри и смёрджи — или через 24 часа
+  `automerge.yml` опубликует выпуск сам (если проверка прошла и не запрошены изменения).
+- `health.yml` каждый день запускает `health.py`: если выпуск старше 8 дней или данные устарели, открывается Issue с меткой `health`.
+- Страницы выпусков: `site/issues/<id>/` (ru, `uk.html`, `en.html`) со своей карточкой `site/cards/<id>-<lang>.png` — для ссылок в соцсетях.
+- Статистика посещений: впиши код GoatCounter в `site/config.json` → `"goatcounter": "<код>"` (бесплатно, без cookies).
+- Подписка: `"telegramUrl"` в `site/config.json` — ссылка на канал появится в «О проекте» рядом с RSS.

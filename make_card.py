@@ -79,11 +79,11 @@ def domain_scores(b, av):
     return res
 
 
-def main():
+def main(lang=None, issue=None, out=None, post=True):
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    lang = args[0] if args else "ru"
+    lang = lang or (args[0] if args else "ru")
     idx = json.loads((SITE / "data/briefs/index.json").read_text(encoding="utf-8"))["briefs"]
-    last = sorted(idx, key=lambda x: x["id"])[-1]
+    last = next(x for x in idx if x["id"] == issue) if issue else sorted(idx, key=lambda x: x["id"])[-1]
     b = json.loads((SITE / f"data/briefs/{last['id']}/{lang}.json").read_text(encoding="utf-8"))
     ds = domain_scores(b, auto_values())
     index = sum(s for _, s in ds) / len(ds)
@@ -132,7 +132,9 @@ def main():
         for ln in lines[:2]:
             dr.text((hx + 26, y), ln, font=font(reg, 24), fill=(238, 243, 251)); y += 32
         y += 14
-    img.save(SITE / "card.png", optimize=True)
+    img.save(out or (SITE / "card.png"), optimize=True)
+    if not post:
+        return
 
     # ---- текст для Telegram ----
     url = os.environ.get("SITE_URL", "")
@@ -158,4 +160,11 @@ def main():
 
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
-    main()
+    if "--all-issues" in sys.argv:
+        (SITE / "cards").mkdir(exist_ok=True)
+        for it in json.loads((SITE / "data/briefs/index.json").read_text(encoding="utf-8"))["briefs"]:
+            for lg in ("ru", "uk", "en"):
+                main(lg, it["id"], SITE / "cards" / f"{it['id']}-{lg}.png", post=False)
+        print("cards: ok")
+    else:
+        main()

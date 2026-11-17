@@ -5,7 +5,7 @@ on:
     paths: ["site/**", "build_site.py", "make_card.py"]
   # Коммиты бота из «Сбора данных» сами не запускают другие workflow — поэтому публикуем по его завершении
   workflow_run:
-    workflows: ["Сбор данных"]
+    workflows: ["Сбор данных", "Автопубликация выпуска"]
     types: [completed]
   workflow_dispatch:
 permissions:
@@ -27,8 +27,8 @@ jobs:
       - run: pip install pillow==10.4.0
       - name: Проверка данных (публикация останавливается при ошибке)
         run: python build_site.py
-      - name: Карточка для соцсетей
-        run: python make_card.py ru
+      - name: Карточки для соцсетей (общая и по выпускам)
+        run: python make_card.py ru && python make_card.py --all-issues
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

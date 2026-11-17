@@ -5,29 +5,100 @@
   "en": "Points before the first issue are an expert reconstruction from news archives and NBU, State Statistics and DeepState data at month-end. They are less precise than weekly issues and shown dashed."
  },
  "points": [
-  {"date": "2026-08-31", "reconstructed": true,
-   "domains": {"energy": 3.0, "airdef": 2.4, "front": 2.5, "army": 2.3, "economy": 2.8, "finance": 2.5, "anticorr": 2.7, "diplomacy": 2.2, "society": 3.3},
-   "basis": {"ru": "Летом бытовых отключений не было (ограничения только для промышленности); инфляция 8,1%, рост ВВП во II кв. +0,4%, ставка 15,5%; переговоры на паузе, Венгрия блокирует кластеры.",
-             "uk": "Влітку побутових відключень не було (обмеження лише для промисловості); інфляція 8,1%, зростання ВВП у II кв. +0,4%, ставка 15,5%; переговори на паузі, Угорщина блокує кластери.",
-             "en": "No household outages in summer (limits for industry only); inflation 8.1%, Q2 GDP +0.4%, key rate 15.5%; talks paused, Hungary blocking clusters."}},
-  {"date": "2026-09-30", "reconstructed": true,
-   "domains": {"energy": 2.6, "airdef": 2.2, "front": 2.5, "army": 2.2, "economy": 2.4, "finance": 2.5, "anticorr": 2.6, "diplomacy": 2.3, "society": 2.9},
-   "basis": {"ru": "Удары по энергетике усиливаются; инфляция ускорилась до ~10%, НБУ поднял ставку до 16%; доверие президенту в начале октября 43% (КМИС).",
-             "uk": "Удари по енергетиці посилюються; інфляція прискорилася до ~10%, НБУ підвищив ставку до 16%; довіра президенту на початку жовтня 43% (КМІС).",
-             "en": "Strikes on energy intensify; inflation accelerates to ~10%, NBU raises rate to 16%; trust in the president 43% in early October (KIIS)."}},
-  {"date": "2026-10-31", "reconstructed": true,
-   "domains": {"energy": 1.7, "airdef": 1.8, "front": 2.6, "army": 2.0, "economy": 2.2, "finance": 2.5, "anticorr": 2.5, "diplomacy": 2.8, "society": 3.4},
-   "basis": {"ru": "Удары по сетям передачи, аварийные отключения в Киеве, блэкауты в Днепре; ставка 16,5%; открыты кластеры 2 и 3; доверие выросло до 62% (КМИС).",
-             "uk": "Удари по мережах передачі, аварійні відключення в Києві, блекаути в Дніпрі; ставка 16,5%; відкрито кластери 2 і 3; довіра зросла до 62% (КМІС).",
-             "en": "Strikes on transmission, emergency outages in Kyiv, blackouts in Dnipro; key rate 16.5%; clusters 2 and 3 opened; trust up to 62% (KIIS)."}}
+  {
+   "date": "2026-08-31",
+   "reconstructed": true,
+   "domains": {
+    "energy": 3.0,
+    "airdef": 2.4,
+    "front": 2.5,
+    "army": 2.3,
+    "economy": 2.8,
+    "finance": 2.5,
+    "anticorr": 2.7,
+    "diplomacy": 2.2,
+    "society": 3.3
+   },
+   "basis": {
+    "ru": "Летом бытовых отключений не было (ограничения только для промышленности); инфляция 8,1%, рост ВВП во II кв. +0,4%, ставка 15,5%; переговоры на паузе, Венгрия блокирует кластеры.",
+    "uk": "Влітку побутових відключень не було (обмеження лише для промисловості); інфляція 8,1%, зростання ВВП у II кв. +0,4%, ставка 15,5%; переговори на паузі, Угорщина блокує кластери.",
+    "en": "No household outages in summer (limits for industry only); inflation 8.1%, Q2 GDP +0.4%, key rate 15.5%; talks paused, Hungary blocking clusters."
+   }
+  },
+  {
+   "date": "2026-09-30",
+   "reconstructed": true,
+   "domains": {
+    "energy": 2.6,
+    "airdef": 2.2,
+    "front": 2.5,
+    "army": 2.2,
+    "economy": 2.4,
+    "finance": 2.5,
+    "anticorr": 2.6,
+    "diplomacy": 2.3,
+    "society": 2.9
+   },
+   "basis": {
+    "ru": "Удары по энергетике усиливаются; инфляция ускорилась до ~10%, НБУ поднял ставку до 16%; доверие президенту в начале октября 43% (КМИС).",
+    "uk": "Удари по енергетиці посилюються; інфляція прискорилася до ~10%, НБУ підвищив ставку до 16%; довіра президенту на початку жовтня 43% (КМІС).",
+    "en": "Strikes on energy intensify; inflation accelerates to ~10%, NBU raises rate to 16%; trust in the president 43% in early October (KIIS)."
+   }
+  },
+  {
+   "date": "2026-10-31",
+   "reconstructed": true,
+   "domains": {
+    "energy": 1.7,
+    "airdef": 1.8,
+    "front": 2.6,
+    "army": 2.0,
+    "economy": 2.2,
+    "finance": 2.5,
+    "anticorr": 2.5,
+    "diplomacy": 2.8,
+    "society": 3.4
+   },
+   "basis": {
+    "ru": "Удары по сетям передачи, аварийные отключения в Киеве, блэкауты в Днепре; ставка 16,5%; открыты кластеры 2 и 3; доверие выросло до 62% (КМИС).",
+    "uk": "Удари по мережах передачі, аварійні відключення в Києві, блекаути в Дніпрі; ставка 16,5%; відкрито кластери 2 і 3; довіра зросла до 62% (КМІС).",
+    "en": "Strikes on transmission, emergency outages in Kyiv, blackouts in Dnipro; key rate 16.5%; clusters 2 and 3 opened; trust up to 62% (KIIS)."
+   }
+  }
  ],
  "sources": [
-  {"title": "Інфляція в серпні 8,1% (Forbes)", "url": "https://forbes.ua/news/richna-inflyatsiya-v-ukraini-u-serpni-priskorilasya-do-81-09092026-41878"},
-  {"title": "Інфляція у вересні 10% (Forbes)", "url": "https://forbes.ua/news/ricna-infliaciia-v-ukrayini-u-veresni-priskorilasia-do-10-09102026-42814"},
-  {"title": "ВВП II кв. 2026 (Forbes)", "url": "https://forbes.ua/news/derzhstat-pogirshiv-otsinku-zrostannya-vvp-ekonomika-zrosla-na-04-u-drugomu-kvartali-09092026-41894"},
-  {"title": "НБУ: ставка 16% з 18 вересня", "url": "https://news.dtkt.ua/finance/bank-system/114751-oblikova-stavka-16-diiatime-z-18-veresnia-2026-r-nove-risennia-nbu"},
-  {"title": "Енергосектор у жовтні 2026 (УІМ)", "url": "https://uifuture.org/analitychni-materialy/dajdzhesty/energo-sektor-10-2026/"},
-  {"title": "Як Україна уникла відключень у спеку (Чорнобиль)", "url": "https://chernobyl.in.ua/n/yak-ukrayina-unyknula-vidklyuchen-svitla-v-speku/"},
-  {"title": "КМІС: довіра, жовтень (LB.ua)", "url": "https://lb.ua/society/2026/10/20/774730_kmis_proviv_nove_opituvannya_pro.html"}
- ]
+  {
+   "title": "Інфляція в серпні 8,1% (Forbes)",
+   "url": "https://forbes.ua/news/richna-inflyatsiya-v-ukraini-u-serpni-priskorilasya-do-81-09092026-41878"
+  },
+  {
+   "title": "Інфляція у вересні 10% (Forbes)",
+   "url": "https://forbes.ua/news/ricna-infliaciia-v-ukrayini-u-veresni-priskorilasia-do-10-09102026-42814"
+  },
+  {
+   "title": "ВВП II кв. 2026 (Forbes)",
+   "url": "https://forbes.ua/news/derzhstat-pogirshiv-otsinku-zrostannya-vvp-ekonomika-zrosla-na-04-u-drugomu-kvartali-09092026-41894"
+  },
+  {
+   "title": "НБУ: ставка 16% з 18 вересня",
+   "url": "https://news.dtkt.ua/finance/bank-system/114751-oblikova-stavka-16-diiatime-z-18-veresnia-2026-r-nove-risennia-nbu"
+  },
+  {
+   "title": "Енергосектор у жовтні 2026 (УІМ)",
+   "url": "https://uifuture.org/analitychni-materialy/dajdzhesty/energo-sektor-10-2026/"
+  },
+  {
+   "title": "Як Україна уникла відключень у спеку (Чорнобиль)",
+   "url": "https://chernobyl.in.ua/n/yak-ukrayina-unyknula-vidklyuchen-svitla-v-speku/"
+  },
+  {
+   "title": "КМІС: довіра, жовтень (LB.ua)",
+   "url": "https://lb.ua/society/2026/10/20/774730_kmis_proviv_nove_opituvannya_pro.html"
+  }
+ ],
+ "validation": {
+  "ru": "Проверка на истории: с августа по октябрь индекс снизился с 2,6 до 2,4, а сфера «Энергетика» — с 3,0 до 1,7. Это совпадает с реальными событиями: летом бытовых отключений не было, в октябре начались удары по сетям передачи и блэкауты. Провал «Общества» в сентябре (2,9) соответствует падению доверия до 43% в начале октября. Расхождений с ключевыми событиями не найдено, но точек пока мало для строгой проверки.",
+  "uk": "Перевірка на історії: із серпня по жовтень індекс знизився з 2,6 до 2,4, а сфера «Енергетика» — з 3,0 до 1,7. Це збігається з реальними подіями: влітку побутових відключень не було, у жовтні почалися удари по мережах передачі й блекаути. Провал «Суспільства» у вересні (2,9) відповідає падінню довіри до 43% на початку жовтня. Розбіжностей із ключовими подіями не знайдено, але точок поки замало для суворої перевірки.",
+  "en": "Historical check: from August to October the index fell from 2.6 to 2.4 and Energy from 3.0 to 1.7. This matches real events: no household outages in summer, then strikes on transmission and blackouts in October. The dip in Society in September (2.9) matches trust falling to 43% in early October. No contradictions with key events were found, but there are too few points for a rigorous test."
+ }
 }

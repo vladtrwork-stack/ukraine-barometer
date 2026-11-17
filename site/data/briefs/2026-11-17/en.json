@@ -348,19 +348,19 @@
      "auto": "front_week_km2"
     },
     {
-     "label": "Threat of a major offensive (room's assessment)",
-     "raw": 2,
-     "value": "high",
-     "better": "higher",
+     "label": "Axes with confirmed Russian advances this week (ISW)",
+     "raw": 1,
+     "value": "≈1",
+     "better": "lower",
      "thresholds": [
-      1.5,
-      2.5,
-      3.5,
-      4.5
+      0,
+      1,
+      2,
+      4
      ],
-     "weight": 0.4,
-     "conf": "expert",
-     "source": "ISW, штаб"
+     "conf": "estimate",
+     "source": "ISW",
+     "weight": 0.4
     }
    ],
    "scoreExpert": 2
@@ -830,19 +830,19 @@
      "source": "УП"
     },
     {
-     "label": "Progress in talks (room's assessment)",
-     "raw": 3,
-     "value": "moderate",
+     "label": "Rounds of talks this month",
+     "raw": 1,
+     "value": "1 (Abu Dhabi)",
      "better": "higher",
      "thresholds": [
-      1.5,
-      2.5,
-      3.5,
-      4.5
+      0.5,
+      1,
+      2,
+      3
      ],
-     "weight": 0.4,
-     "conf": "expert",
-     "source": "штаб"
+     "conf": "confirmed",
+     "source": "Euronews, CNN",
+     "weight": 0.4
     },
     {
      "label": "€45bn EU loan: stage",
@@ -914,19 +914,19 @@
      "source": "КМИС"
     },
     {
-     "label": "Willingness to resist (assessment)",
-     "raw": 4,
-     "value": "high",
+     "label": "Ready to endure the war as long as needed",
+     "raw": 61,
+     "value": "61%",
      "better": "higher",
      "thresholds": [
-      1.5,
-      2.5,
-      3.5,
-      4.5
+      40,
+      50,
+      60,
+      70
      ],
-     "weight": 0.4,
-     "conf": "expert",
-     "source": "КМИС, штаб"
+     "conf": "single",
+     "source": "КМИС, июль–август",
+     "weight": 0.4
     },
     {
      "label": "Ukrainians protected in the EU, m",
@@ -974,43 +974,50 @@
    "rec": "Distributed generation",
    "check": "NSDC or Cabinet decision; MW installed",
    "due": "2026-12-15",
-   "status": "pending"
+   "status": "pending",
+   "prob": 0.35
   },
   {
    "rec": "€45bn EU loan",
    "check": "Approved by the European Council",
    "due": "2026-12-19",
-   "status": "pending"
+   "status": "pending",
+   "prob": 0.65
   },
   {
    "rec": "Anti-corruption strategy",
    "check": "Adopted by the Rada",
    "due": "2026-11-30",
-   "status": "pending"
+   "status": "pending",
+   "prob": 0.4
   },
   {
    "rec": "Prisoner exchange",
    "check": "Carried out; numbers",
    "due": "2026-12-15",
-   "status": "pending"
+   "status": "pending",
+   "prob": 0.6
   },
   {
    "rec": "Patriot",
    "check": "Delivery schedule published; missiles per month",
    "due": "2026-12-31",
-   "status": "pending"
+   "status": "pending",
+   "prob": 0.15
   },
   {
    "rec": "EU clusters 4 and 5",
    "check": "Opened",
    "due": "2026-12-31",
-   "status": "pending"
+   "status": "pending",
+   "prob": 0.3
   },
   {
    "rec": "Forecast: push on Druzhkivka",
    "check": "Russia launches an offensive after the Kostiantynivka lull",
    "due": "2026-12-15",
-   "status": "pending"
+   "status": "pending",
+   "prob": 0.55
   }
  ],
  "gaps": [
@@ -1159,6 +1166,14 @@
   {
    "title": "Interceptor drone costs (Fakty)",
    "url": "https://fakty.com.ua/ua/ukraine/20260424-ukrayinski-drony-zbyly-ponad-3-tys-shahediv-yak-pratsyuye-p1-sun/"
+  },
+  {
+   "title": "Банк России: ключевая ставка",
+   "url": "https://www.cbr.ru/press/keypr/"
+  },
+  {
+   "title": "KIIS: readiness to endure the war (Fakty)",
+   "url": "https://fakty.com.ua/ua/ukraine/20260807-majzhe-polovyna-ukrayintsiv-ochikuyut-shho-vijna-tryvatyme-shhe-blyzko-roku-ale-61-gotovi-terpity-kmis/amp/"
   }
  ],
  "corruption": {
@@ -1458,5 +1473,101 @@
   "chernihiv": "front"
  },
  "horizon": "3 months",
- "corrections": []
+ "corrections": [
+  {
+   "date": "2026-11-17",
+   "text": "Three expert sub-indicators (offensive threat, progress in talks, willingness to resist) were replaced with measurable ones: ISW-confirmed advances, number of negotiation rounds, share ready to endure the war (KIIS)."
+  }
+ ],
+ "scenarios": [
+  {
+   "id": "base",
+   "prob": 0.55,
+   "index": [
+    2.1,
+    2.5
+   ],
+   "name": "Protracted standoff",
+   "text": "The front is broadly stable with local losses, strikes on energy continue and outage schedules last until spring. The EU loan is approved with a delay, inflation is about 12%, talks go on without a breakthrough.",
+   "triggers": [
+    "EU loan decision in December",
+    "Air-defence deliveries of 10–20 missiles a month"
+   ]
+  },
+  {
+   "id": "pess",
+   "prob": 0.25,
+   "index": [
+    1.6,
+    2.0
+   ],
+   "name": "Energy collapse and pressure",
+   "text": "Multi-day blackouts in several big cities, a breakthrough towards Druzhkivka, delayed EU financing and stronger US pressure for territorial concessions.",
+   "triggers": [
+    "EU decision refused or postponed",
+    "Interceptor deliveries fall",
+    "Offensive after the Kostiantynivka lull"
+   ]
+  },
+  {
+   "id": "opt",
+   "prob": 0.2,
+   "index": [
+    2.6,
+    3.0
+   ],
+   "name": "Stabilisation",
+   "text": "An agreement to halt strikes on energy or a ceasefire, a large prisoner exchange, the EU loan before year-end and faster air-defence deliveries.",
+   "triggers": [
+    "Agreement after the Abu Dhabi round",
+    "Clusters 4 and 5 opened"
+   ]
+  }
+ ],
+ "russia": {
+  "lead": "The enemy's capacity to keep fighting: money, fuel, the economy. Rises in these indicators are bad news for Ukraine.",
+  "kpis": [
+   {
+    "label": "Russia's oil export revenue, October",
+    "value": "$21.2bn",
+    "sub": "+65% y/y, helped by high prices",
+    "dir": "bad",
+    "source": "МЭА",
+    "conf": "confirmed"
+   },
+   {
+    "label": "Crude oil exports",
+    "value": "3.9m bbl/day",
+    "sub": "highest since July, 4 weeks to 15 Nov",
+    "dir": "bad",
+    "source": "Bloomberg",
+    "conf": "single"
+   },
+   {
+    "label": "Refining capacity",
+    "value": "−30%",
+    "sub": "Kyiv's estimate: −55%; third fuel crisis",
+    "dir": "good",
+    "source": "Reuters / bne",
+    "conf": "estimate"
+   },
+   {
+    "label": "Bank of Russia key rate",
+    "value": "14%",
+    "sub": "on hold since September after cuts from 21%",
+    "dir": "neutral",
+    "source": "Банк России",
+    "conf": "confirmed"
+   },
+   {
+    "label": "Inflation in Russia",
+    "value": "6,8%",
+    "sub": "y/y as of 19 Oct, 2026 forecast 7.1–7.6%",
+    "dir": "neutral",
+    "source": "Банк России, URA.ru",
+    "conf": "single"
+   }
+  ],
+  "note": "Refinery strikes cause fuel shortages inside Russia but have not yet cut its export revenue: crude exports are rising."
+ }
 }

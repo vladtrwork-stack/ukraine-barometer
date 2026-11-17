@@ -114,6 +114,45 @@ def auto_values(date):
     return out
 
 
+UI = {
+    "ru": {"idx": "Индекс устойчивости", "open": "Открыть полный выпуск", "issue": "Выпуск №", "main": "Главное за неделю", "areas": "Сферы"},
+    "uk": {"idx": "Індекс стійкості", "open": "Відкрити повний випуск", "issue": "Випуск №", "main": "Головне за тиждень", "areas": "Сфери"},
+    "en": {"idx": "Resilience index", "open": "Open the full issue", "issue": "Issue No.", "main": "This week's key points", "areas": "Areas"},
+}
+COLORS = {"crit": "#ff5f5f", "warn": "#ffb340", "info": "#5b9cff", "ok": "#34d399"}
+
+
+def issue_page(b, lang, ix, sc, base):
+    T, e = UI[lang], html.escape
+    num = f"{ix:.1f}" if lang == "en" else f"{ix:.1f}".replace(".", ",")
+    title = f"{NAME[lang]} · {T['issue']} {b['number']}: {num}/5"
+    desc = " · ".join(h["title"] for h in b["headline"][:3])
+    img = f"{base}/cards/{b['id']}-{lang}.png" if base else f"../../cards/{b['id']}-{lang}.png"
+    app = f"../../?week={b['id']}&lang={lang}"
+    rows = "".join(f"<li><span style='background:{COLORS.get(d['status'], '#999')}'></span>{e(d['name'])}<b>{sc[d['id']]:.1f}</b></li>"
+                   for d in sorted(b["domains"], key=lambda d: sc[d["id"]]))
+    heads = "".join(f"<li><b>{e(h['title'])}</b><p>{e(h['text'])}</p></li>" for h in b["headline"])
+    alt = "".join(f'<link rel="alternate" hreflang="{l}" href="{base}/issues/{b["id"]}/{"" if l == "ru" else l + ".html"}">' for l in LANGS) if base else ""
+    return f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{e(title)}</title><meta name="description" content="{e(desc)}">
+<meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="article">
+<meta property="og:image" content="{img}"><meta name="twitter:card" content="summary_large_image">{alt}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600&family=Onest:wght@400;500;600&display=swap">
+<style>:root{{--bg:#06080d;--card:#0d121c;--ink:#eaf0fa;--muted:#93a0b6;--line:rgba(148,170,210,.14);--accent:#5b9cff;color-scheme:dark}}
+@media (prefers-color-scheme:light){{:root{{--bg:#f3f5fa;--card:#fff;--ink:#0d1526;--muted:#56627a;--line:rgba(20,34,64,.1);--accent:#2563eb;color-scheme:light}}}}
+*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Onest,system-ui,sans-serif}}
+main{{max-width:860px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-left)) 64px;display:grid;gap:22px}}
+.k{{font:600 12px/1 Onest;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}}h1{{font:600 clamp(28px,5vw,44px)/1.05 Unbounded,sans-serif;letter-spacing:-.03em;margin:0}}
+.ix{{font:600 64px/1 Unbounded,sans-serif;letter-spacing:-.04em}}.ix small{{font-size:20px;color:var(--muted)}}
+.c{{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px}}ul{{list-style:none;margin:0;padding:0;display:grid;gap:10px}}
+.a li{{display:grid;grid-template-columns:10px 1fr auto;gap:10px;align-items:center}}.a span{{width:10px;height:10px;border-radius:50%}}
+.h p{{margin:2px 0 0;color:var(--muted)}}a.b{{justify-self:start;background:var(--accent);color:#fff;text-decoration:none;padding:12px 18px;border-radius:12px;font-weight:600}}</style></head>
+<body><main><span class="k">{e(NAME[lang])} · {T['issue']} {b['number']} · {e(b['period'])}</span><h1>{e(T['main'])}</h1>
+<div class="c"><span class="k">{e(T['idx'])}</span><div class="ix">{num}<small> / 5</small></div></div>
+<div class="c h"><ul>{heads}</ul></div><div class="c a"><span class="k">{e(T['areas'])}</span><ul style="margin-top:12px">{rows}</ul></div>
+<a class="b" href="{app}">{e(T['open'])} →</a></main></body></html>"""
+
+
 def build():
     idx = sorted(load(DATA / "briefs/index.json")["briefs"], key=lambda x: x["id"])
     (DATA / "export").mkdir(exist_ok=True)
@@ -157,8 +196,20 @@ def build():
         feed = (f"<?xml version=\"1.0\" encoding=\"UTF-8\"?><rss version=\"2.0\"><channel><title>{NAME[lang]}</title>"
                 f"<link>{base or '.'}/</link><description>{NAME[lang]}</description><language>{lang}</language>{''.join(items)}</channel></rss>")
         (SITE / ("feed.xml" if lang == "ru" else f"feed-{lang}.xml")).write_text(feed, encoding="utf-8")
+    # Статические страницы выпусков (для ссылок и превью в соцсетях)
+    issue_urls = []
+    for it in idx:
+        for lang in LANGS:
+            bb = briefs[it["id"]][lang]
+            sc = scores(bb, auto_values(bb["compiled"]))
+            ix = sum(sc.values()) / len(sc)
+            d = SITE / "issues" / it["id"]
+            d.mkdir(parents=True, exist_ok=True)
+            fn = "index.html" if lang == "ru" else f"{lang}.html"
+            issue_urls.append(f"{base}/issues/{it['id']}/{'' if lang == 'ru' else fn}")
+            (d / fn).write_text(issue_page(bb, lang, ix, sc, base), encoding="utf-8")
     if base:
-        (SITE / "sitemap.xml").write_text(f"<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>{base}/</loc><lastmod>{idx[-1]['id']}</lastmod></url></urlset>", encoding="utf-8")
+        (SITE / "sitemap.xml").write_text(f"<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>{base}/</loc><lastmod>{idx[-1]['id']}</lastmod></url>" + "".join(f"<url><loc>{u}</loc></url>" for u in issue_urls) + "</urlset>", encoding="utf-8")
     print(f"export: {len(rows)} строк; RSS ×3")
 
 

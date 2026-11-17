@@ -8,7 +8,14 @@
   const I18N = {
     ru: {
       locale: "ru-RU", brand: "Барометр", brandSub: "еженедельный индекс по открытым данным",
-      nav: { overview: "Обзор", markets: "Данные", domains: "Разбор", whatif: "Что если", map: "Карта", corruption: "Коррупция", journal: "Журнал", method: "Методика", about: "О проекте" },
+      nav: { overview: "Обзор", markets: "Данные", domains: "Разбор", whatif: "Что если", russia: "Россия", map: "Карта", corruption: "Коррупция", journal: "Журнал", method: "Методика", about: "О проекте" },
+      scenTitle: "Сценарии на 3 месяца", scenSub: "вероятности пересматриваются каждую неделю", scenIdx: "индекс", scenTrig: "Что укажет на этот сценарий",
+      russia: "Россия: возможности противника", russiaSub: "деньги, топливо, экономика",
+      prob: "Вероятность", brier: "Точность прогнозов (Brier)", brierNote: (n) => `по ${n} проверенным прогнозам; 0 — идеально, 0,25 — как подбрасывание монеты`,
+      avgConf: (n, p) => `${n} прогнозов, средняя уверенность ${p}%`,
+      compare: "Сравнить с выпуском", compareNone: "Сравнение появится со второго выпуска.", delta: "Изменение",
+      search: "Поиск по выпускам", searchPh: "Поиск: энергетика, НАБУ, кредит…", noResults: "Ничего не найдено",
+      validation: "Проверка методики на истории", subscribe: "Подписаться в Telegram", shareIssue: "Ссылка на этот выпуск",
       trendTitle: "Динамика индекса", trendNote: "пунктир — реконструкция до первого выпуска", sens: (a, b) => `при весах ±20%: ${a}–${b}`,
       about: "О проекте", aboutLead: "«Барометр Украины» — независимый открытый проект. Каждую неделю он оценивает 9 сфер жизни страны по открытым данным и публикует предложения, которые могли бы улучшить ситуацию.",
       aboutWho: "Кто делает", aboutWhoText: "Выпуски готовит автоматический ИИ-агент (Claude, Anthropic) по фиксированной методике: собирает открытые данные и новости, считает индекс, пишет разбор на трёх языках и проверяет цифры отдельным проходом. У каждой цифры есть ссылка на источник. Проект не связан с государственными органами, партиями или донорами и не получает финансирования.",
@@ -56,7 +63,7 @@
       procCols: ["Тема", "Закупок", "Сумма, грн", "Без конкуренции"], procTop: "Крупнейшие закупки без конкуренции по темам риска",
       procNote: "Закупка без конкуренции (отчёт, переговорная процедура) — законный инструмент и сигнал для проверки, а не доказательство нарушения. Значительная часть оборонных закупок в Prozorro не публикуется. Выборка — до 300 последних закупок на тему (≈ — выборка неполная), доля считается по сумме.",
       topics: { energy_protection: "Защита энергообъектов", drones: "Дроны и БПЛА", fortification: "Фортификации", generators: "Генераторы и когенерация", shelters: "Укрытия в школах и больницах" },
-      journal: "Журнал предложений", jcols: ["Предложение", "Что проверить", "Срок", "Статус", "Итог"],
+      journal: "Журнал предложений", jcols: ["Предложение", "Что проверить", "Вероятность", "Срок", "Статус", "Итог"],
       jstatus: { pending: "Ожидает", done: "Выполнено", failed: "Не выполнено", partial: "Частично" }, overdue: "просрочено",
       accuracy: "Точность прогнозов", accNone: "Первые проверки — 30 ноября", accOf: (a, b) => `проверено ${a} из ${b}`,
       method: "Методика и правила", methodIndex: "Как считается индекс",
@@ -79,7 +86,14 @@
     },
     uk: {
       locale: "uk-UA", brand: "Барометр", brandSub: "щотижневий індекс за відкритими даними",
-      nav: { overview: "Огляд", markets: "Дані", domains: "Розбір", whatif: "Що як", map: "Мапа", corruption: "Корупція", journal: "Журнал", method: "Методика", about: "Про проєкт" },
+      nav: { overview: "Огляд", markets: "Дані", domains: "Розбір", whatif: "Що як", russia: "Росія", map: "Мапа", corruption: "Корупція", journal: "Журнал", method: "Методика", about: "Про проєкт" },
+      scenTitle: "Сценарії на 3 місяці", scenSub: "ймовірності переглядаються щотижня", scenIdx: "індекс", scenTrig: "Що вкаже на цей сценарій",
+      russia: "Росія: можливості противника", russiaSub: "гроші, пальне, економіка",
+      prob: "Ймовірність", brier: "Точність прогнозів (Brier)", brierNote: (n) => `за ${n} перевіреними прогнозами; 0 — ідеально, 0,25 — як підкидання монети`,
+      avgConf: (n, p) => `${n} прогнозів, середня впевненість ${p}%`,
+      compare: "Порівняти з випуском", compareNone: "Порівняння з'явиться з другого випуску.", delta: "Зміна",
+      search: "Пошук у випусках", searchPh: "Пошук: енергетика, НАБУ, кредит…", noResults: "Нічого не знайдено",
+      validation: "Перевірка методики на історії", subscribe: "Підписатися в Telegram", shareIssue: "Посилання на цей випуск",
       trendTitle: "Динаміка індексу", trendNote: "пунктир — реконструкція до першого випуску", sens: (a, b) => `за вагами ±20%: ${a}–${b}`,
       about: "Про проєкт", aboutLead: "«Барометр України» — незалежний відкритий проєкт. Щотижня він оцінює 9 сфер життя країни за відкритими даними й публікує пропозиції, які могли б покращити ситуацію.",
       aboutWho: "Хто робить", aboutWhoText: "Випуски готує автоматичний ШІ-агент (Claude, Anthropic) за фіксованою методикою: збирає відкриті дані й новини, рахує індекс, пише розбір трьома мовами та перевіряє цифри окремим проходом. Кожна цифра має посилання на джерело. Проєкт не пов'язаний з державними органами, партіями чи донорами й не отримує фінансування.",
@@ -127,7 +141,7 @@
       procCols: ["Тема", "Закупівель", "Сума, грн", "Без конкуренції"], procTop: "Найбільші закупівлі без конкуренції за темами ризику",
       procNote: "Закупівля без конкуренції (звіт, переговорна процедура) — законний інструмент і сигнал для перевірки, а не доказ порушення. Значна частина оборонних закупівель у Prozorro не публікується. Вибірка — до 300 останніх закупівель на тему (≈ — вибірка неповна), частка рахується за сумою.",
       topics: { energy_protection: "Захист енергооб'єктів", drones: "Дрони та БПЛА", fortification: "Фортифікації", generators: "Генератори й когенерація", shelters: "Укриття у школах і лікарнях" },
-      journal: "Журнал пропозицій", jcols: ["Пропозиція", "Що перевірити", "Термін", "Статус", "Підсумок"],
+      journal: "Журнал пропозицій", jcols: ["Пропозиція", "Що перевірити", "Ймовірність", "Термін", "Статус", "Підсумок"],
       jstatus: { pending: "Очікує", done: "Виконано", failed: "Не виконано", partial: "Частково" }, overdue: "прострочено",
       accuracy: "Точність прогнозів", accNone: "Перші перевірки — 30 листопада", accOf: (a, b) => `перевірено ${a} з ${b}`,
       method: "Методика і правила", methodIndex: "Як рахується індекс",
@@ -150,7 +164,14 @@
     },
     en: {
       locale: "en-GB", brand: "Barometer", brandSub: "a weekly index from open data",
-      nav: { overview: "Overview", markets: "Data", domains: "Analysis", whatif: "What if", map: "Map", corruption: "Corruption", journal: "Track record", method: "Method", about: "About" },
+      nav: { overview: "Overview", markets: "Data", domains: "Analysis", whatif: "What if", russia: "Russia", map: "Map", corruption: "Corruption", journal: "Track record", method: "Method", about: "About" },
+      scenTitle: "Scenarios for the next 3 months", scenSub: "probabilities are revised every week", scenIdx: "index", scenTrig: "Signals of this scenario",
+      russia: "Russia: the enemy's capacity", russiaSub: "money, fuel, the economy",
+      prob: "Probability", brier: "Forecast accuracy (Brier)", brierNote: (n) => `over ${n} resolved forecasts; 0 is perfect, 0.25 is a coin toss`,
+      avgConf: (n, p) => `${n} forecasts, average confidence ${p}%`,
+      compare: "Compare with issue", compareNone: "Comparison becomes available from the second issue.", delta: "Change",
+      search: "Search issues", searchPh: "Search: energy, NABU, loan…", noResults: "Nothing found",
+      validation: "Testing the method on history", subscribe: "Subscribe on Telegram", shareIssue: "Link to this issue",
       trendTitle: "Index over time", trendNote: "dashed — reconstruction before the first issue", sens: (a, b) => `with weights ±20%: ${a}–${b}`,
       about: "About", aboutLead: "Ukraine Barometer is an independent open project. Every week it assesses nine areas of national life from open data and publishes proposals that could improve the situation.",
       aboutWho: "Who makes it", aboutWhoText: "Issues are prepared by an automated AI agent (Claude, by Anthropic) following a fixed method: it collects open data and news, computes the index, writes the analysis in three languages and checks the figures in a separate pass. Every figure links to its source. The project has no ties to state bodies, parties or donors and receives no funding.",
@@ -198,7 +219,7 @@
       procCols: ["Topic", "Procurements", "Value, UAH", "Non-competitive"], procTop: "Largest non-competitive procurements in risk topics",
       procNote: "A non-competitive procurement (report or negotiated procedure) is a legal tool and a signal to check, not proof of wrongdoing. A large share of defence procurement is not published in Prozorro. The sample is up to 300 latest procurements per topic (≈ means incomplete); the share is by value.",
       topics: { energy_protection: "Energy-site protection", drones: "Drones and UAVs", fortification: "Fortifications", generators: "Generators and cogeneration", shelters: "Shelters in schools and hospitals" },
-      journal: "Proposal track record", jcols: ["Proposal", "What to check", "Due", "Status", "Outcome"],
+      journal: "Proposal track record", jcols: ["Proposal", "What to check", "Probability", "Due", "Status", "Outcome"],
       jstatus: { pending: "Pending", done: "Done", failed: "Not done", partial: "Partial" }, overdue: "overdue",
       accuracy: "Forecast accuracy", accNone: "First checks on 30 November", accOf: (a, b) => `${a} of ${b} checked`,
       method: "Method and rules", methodIndex: "How the index is calculated",
@@ -548,7 +569,22 @@
         <div class="tile-bot"><span class="scorebar">${[1, 2, 3, 4, 5].map((i) => `<i class="${i <= Math.round(d.score) ? "on" : ""}"></i>`).join("")}<b>${fmtNum(d.score, 1)}/5</b></span>
         <span class="trend ${d.trend}">${L.trend[d.trend]}</span></div></a>`).join("")}</div>
       ${history}
+      ${renderCompare(b, all)}
     </section>`;
+  }
+
+  function renderCompare(b, all) {
+    const others = all.filter((x) => x.id !== b.id);
+    if (!others.length) return `<p class="label" style="text-transform:none;letter-spacing:0">${esc(L.compareNone)}</p>`;
+    const c = others.find((x) => x.id === state.cmp) || others.filter((x) => x.id < b.id).pop() || others[0];
+    return `<div class="card cmp"><div class="sec-head"><h3>${esc(L.compare)}</h3>
+        <select id="cmp-select" aria-label="${esc(L.compare)}">${others.map((x) => `<option value="${x.id}" ${x.id === c.id ? "selected" : ""}>${L.briefNo} ${x.number} · ${esc(x.period)}</option>`).join("")}</select></div>
+      <div class="tablebox"><table class="mtab"><thead><tr><th>${esc(L.sphere)}</th><th>${L.briefNo} ${c.number}</th><th>${L.briefNo} ${b.number}</th><th>${esc(L.delta)}</th></tr></thead><tbody>
+      ${b.domains.map((d) => { const o = c.domains.find((x) => x.id === d.id); const dl = o ? d.score - o.score : 0;
+        return `<tr><td>${esc(d.name)}</td><td class="num">${o ? fmtNum(o.score, 1) : "—"}</td><td class="num">${fmtNum(d.score, 1)}</td>
+        <td class="num ${dl > 0.05 ? "up" : dl < -0.05 ? "down" : ""}">${dl > 0 ? "+" : dl < 0 ? "−" : ""}${fmtNum(Math.abs(dl), 1)}</td></tr>`; }).join("")}
+      <tr class="tot"><td><b>${esc(L.index)}</b></td><td class="num">${fmtNum(avgScore(c), 2)}</td><td class="num">${fmtNum(avgScore(b), 2)}</td><td class="num">${fmtNum(avgScore(b) - avgScore(c), 2)}</td></tr>
+      </tbody></table></div></div>`;
   }
 
   function renderMarkets(b, ctx) {
@@ -653,11 +689,38 @@
       return [d.id, Math.round((d.score + g) * 10) / 10];
     }));
   }
+  function renderScenarios(b) {
+    if (!b.scenarios?.length) return "";
+    const cls = { base: "info", pess: "crit", opt: "ok" };
+    const order = { pess: 0, base: 1, opt: 2 };
+    return `<div class="sec-head"><h3 class="h3big">${esc(L.scenTitle)}</h3><span class="label">${esc(L.scenSub)}</span></div>
+      <div class="scen">${[...b.scenarios].sort((a, c) => order[a.id] - order[c.id]).map((s) => `<div class="card sc-card ${cls[s.id] || "info"}">
+        <div class="sc-top"><b>${esc(s.name)}</b><span class="sc-p">${Math.round(s.prob * 100)}%</span></div>
+        <span class="sc-bar"><i style="width:${s.prob * 100}%"></i></span>
+        <span class="label">${esc(L.scenIdx)} ${fmtNum(s.index[0], 1)}–${fmtNum(s.index[1], 1)}</span>
+        <p>${esc(s.text)}</p>
+        <span class="label">${esc(L.scenTrig)}</span><ul>${(s.triggers || []).map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}</div>
+      <div style="height:6px"></div>`;
+  }
+
+  function renderRussia(b) {
+    const R = b.russia; if (!R) return "";
+    return `<section id="russia">
+      <div class="sec-head"><h2>${esc(L.russia)}</h2><span class="label">${esc(L.russiaSub)}</span></div>
+      <p class="muted lead2">${esc(R.lead)}</p>
+      <div class="kpis kpis-wide">${R.kpis.map((k) => `<div class="card kpi"><span class="label">${esc(k.label)}</span>
+        <span class="v">${esc(k.value)}</span><span class="s ${k.dir === "good" ? "good" : k.dir === "bad" ? "bad" : ""}">${esc(k.sub)}</span>
+        <span class="src">${esc(k.source)} ${confBadge(k.conf)}</span></div>`).join("")}</div>
+      ${R.note ? `<div class="disclaimer">${ICON.info}<p>${esc(R.note)}</p></div>` : ""}
+    </section>`;
+  }
+
   function renderWhatIf(b) {
     const groups = {};
     allProposals(b).forEach((p) => { (groups[p.group] ||= { name: p.groupName, items: [] }).items.push(p); });
     return `<section id="whatif">
       <div class="sec-head"><h2>${esc(L.whatif)}</h2><span class="label">${esc(L.whatifSub(b.horizon || "3"))}</span></div>
+      ${renderScenarios(b)}
       <p class="muted lead2">${esc(L.whatifLead)}</p>
       <div class="wi">
         <div class="card wi-list">
@@ -815,13 +878,21 @@
     const t = rows.reduce((a, j) => ((a[j.status] = (a[j.status] || 0) + 1), a), {});
     const checked = (t.done || 0) + (t.failed || 0) + (t.partial || 0);
     const acc = checked ? ((t.done || 0) + 0.5 * (t.partial || 0)) / checked * 100 : null;
+    const res = rows.filter((j) => j.prob != null && j.status !== "pending");
+    const brier = res.length ? res.reduce((s, j) => s + (j.prob - (j.status === "done" ? 1 : j.status === "partial" ? 0.5 : 0)) ** 2, 0) / res.length : null;
+    const withP = rows.filter((j) => j.prob != null);
+    const avgP = withP.length ? Math.round((withP.reduce((s, j) => s + j.prob, 0) / withP.length) * 100) : null;
     return `<section id="journal">
       <div class="sec-head"><h2>${esc(L.journal)}</h2><span class="label">${Object.entries(t).map(([k, v]) => `${L.jstatus[k]}: ${v}`).join(" · ")}</span></div>
       <div class="acc card"><div><span class="label">${esc(L.accuracy)}</span><span class="acc-n">${acc == null ? "—" : `${fmtNum(acc, 0)}%`}</span></div>
         <div class="acc-bar">${["done", "partial", "failed", "pending"].map((s) => t[s] ? `<i class="st-${s}" style="flex:${t[s]}" title="${L.jstatus[s]}: ${t[s]}"></i>` : "").join("")}</div>
         <span class="muted">${acc == null ? esc(L.accNone) : esc(L.accOf(checked, rows.length))}</span></div>
+      <div class="acc card"><div><span class="label">${esc(L.brier)}</span><span class="acc-n">${brier == null ? "—" : fmtNum(brier, 2)}</span></div>
+        <div class="acc-bar brier"><i style="flex:${brier == null ? 0 : Math.max(0.02, 1 - brier / 0.25)};--c:var(--ok)"></i><i style="flex:${brier == null ? 1 : Math.min(1, brier / 0.25)};--c:var(--surface-3)"></i></div>
+        <span class="muted">${brier == null ? (avgP == null ? "—" : esc(L.avgConf(withP.length, avgP))) : esc(L.brierNote(res.length))}</span></div>
       <div class="card tablebox"><table><thead><tr>${L.jcols.map((c) => `<th>${c}</th>`).join("")}</tr></thead>
         <tbody>${rows.map((j) => { const od = j.status === "pending" && j.due < b.compiled; return `<tr><td>${esc(j.rec)}</td><td>${esc(j.check)}</td>
+          <td>${j.prob == null ? "—" : `<span class="pbar"><i style="width:${j.prob * 100}%"></i></span><span class="mono">${Math.round(j.prob * 100)}%</span>`}</td>
           <td class="num ${od ? "overdue" : ""}">${fmtDate(j.due)}${od ? ` · ${L.overdue}` : ""}</td>
           <td><span class="pill st-${j.status}">${L.jstatus[j.status] || j.status}</span></td><td>${esc(j.result || "")}</td></tr>`; }).join("")}</tbody></table></div>
     </section>`;
@@ -831,6 +902,7 @@
       <div class="sec-head"><h2>${esc(L.method)}</h2></div>
       <div class="method-grid">
         <div class="card mcard"><h3>${esc(L.methodIndex)}</h3><p>${esc(L.methodIndexText)}</p>
+          ${state.hist?.validation ? `<h3>${esc(L.validation)}</h3><p>${esc(state.hist.validation[LANG] || state.hist.validation.ru)}</p>` : ""}
           <h3>${esc(L.confLegend)}</h3><div class="cf-legend">${Object.keys(L.conf).map((c) => confBadge(c)).join("")}</div></div>
         <div class="card mcard"><h3>${esc(L.rules)}</h3><ul>${L.rulesList.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
           <h3>${esc(L.corrections)}</h3>${(b.corrections || []).length ? `<ul>${b.corrections.map((c) => `<li><span class="mono">${esc(c.date)}</span> ${esc(c.text)}</li>`).join("")}</ul>` : `<p class="muted">${esc(L.noCorrections)}</p>`}</div>
@@ -861,7 +933,9 @@
         <div class="side">
           <div class="card mcard"><h3>${esc(L.dataTitle)}</h3><p>${esc(L.dataText)}</p>
             <ul class="dl"><li><a href="data/export/barometer.csv">${esc(L.dlCsv)}</a></li><li><a href="data/briefs/${b.id}/${LANG}.json">${esc(L.dlJson)}</a></li>
-            <li><a href="feed${LANG === "ru" ? "" : "-" + LANG}.xml">${esc(L.rss)}</a></li></ul></div>
+            <li><a href="feed${LANG === "ru" ? "" : "-" + LANG}.xml">${esc(L.rss)}</a></li>
+            ${C.telegramUrl ? `<li><a href="${esc(C.telegramUrl)}" target="_blank" rel="noopener">${esc(L.subscribe)}</a></li>` : ""}
+            <li><a href="issues/${b.id}/${LANG === "ru" ? "" : LANG + ".html"}">${esc(L.shareIssue)}</a></li></ul></div>
           <div class="card mcard"><h3>${esc(L.embedTitle)}</h3><p>${esc(L.embedText)}</p>
             <textarea class="embed-code" id="embed-code" readonly rows="4">${esc(embed)}</textarea>
             <button type="button" class="btn ghost" id="embed-copy" style="justify-self:start">${esc(L.copy)}</button></div>
@@ -870,11 +944,46 @@
     </section>`;
   }
 
+  /* ======================= Поиск по выпускам ======================= */
+  function searchAll(q) {
+    q = q.trim().toLowerCase(); if (q.length < 3) return [];
+    const out = [];
+    const hit = (s) => s && String(s).toLowerCase().includes(q);
+    const snip = (s) => { s = String(s); const i = s.toLowerCase().indexOf(q); return (i > 40 ? "…" : "") + s.slice(Math.max(0, i - 40), i + q.length + 60) + "…"; };
+    (state.all || []).forEach((b) => {
+      b.headline.forEach((h) => { if (hit(h.title) || hit(h.text)) out.push({ b, anchor: "overview", title: h.title, text: snip(hit(h.title) ? h.title : h.text) }); });
+      b.domains.forEach((d) => {
+        const all = [...d.situation, d.diagnosis, ...d.recs.map((r) => r.title + " " + (r.effect || ""))];
+        const f = all.find(hit); if (f || hit(d.name)) out.push({ b, anchor: `dom-${d.id}`, open: d.id, title: d.name, text: snip(f || d.name) });
+      });
+      (b.corruption?.cases || []).forEach((c) => { if (hit(c.title) || hit(c.detail)) out.push({ b, anchor: "corruption", title: c.title, text: snip(hit(c.title) ? c.title : c.detail) }); });
+    });
+    return out.slice(0, 14);
+  }
+  function wireSearch() {
+    const inp = $("#search"), box = $("#search-res"); if (!inp) return;
+    inp.placeholder = L.searchPh; inp.setAttribute("aria-label", L.search);
+    const show = () => {
+      const r = searchAll(inp.value);
+      box.hidden = inp.value.trim().length < 3;
+      box.innerHTML = r.length ? r.map((x, i) => `<button type="button" class="sr" data-i="${i}"><span class="label">${L.briefNo} ${x.b.number} · ${esc(x.b.period)}</span><b>${esc(x.title)}</b><span>${esc(x.text)}</span></button>`).join("") : `<p class="muted">${esc(L.noResults)}</p>`;
+      box.querySelectorAll(".sr").forEach((el) => el.addEventListener("click", async () => {
+        const x = r[+el.dataset.i]; box.hidden = true; inp.value = "";
+        if (state.week !== x.b.id) { state.week = x.b.id; store.set("shtab-week", x.b.id); await render(); }
+        const tgt = document.getElementById(x.anchor);
+        if (x.open) { const det = tgt?.querySelector("details"); if (det) { tgt.hidden = false; det.open = true; } }
+        tgt?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }));
+    };
+    inp.oninput = show;
+    inp.onkeydown = (e) => { if (e.key === "Escape") { inp.value = ""; box.hidden = true; } };
+  }
+
   /* ======================= Навигация и связывание ======================= */
   function renderChrome() {
     document.documentElement.lang = LANG;
     document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = L[el.dataset.i18n]; });
-    const NAV_ICON = { overview: "spark", markets: "economy", domains: "front", whatif: "up", map: "diplomacy", corruption: "anticorr", journal: "info", method: "finance", about: "society" };
+    const NAV_ICON = { overview: "spark", markets: "economy", domains: "front", whatif: "up", russia: "airdef", map: "diplomacy", corruption: "anticorr", journal: "info", method: "finance", about: "society" };
     $("#nav").innerHTML = Object.entries(L.nav).map(([id, t]) => `<a href="#${id}" data-sec="${id}">${icon(NAV_ICON[id])}<span>${esc(t)}</span></a>`).join("");
     document.querySelectorAll("#lang button").forEach((bt) => bt.setAttribute("aria-pressed", String(bt.dataset.lang === LANG)));
     $("#foot-note").textContent = L.foot;
@@ -931,7 +1040,7 @@
   }));
 
   /* ======================= Состояние ======================= */
-  const state = { list: [], ctx: null, week: null, sim: new Set(), layer: "status", hist: null, config: null };
+  const state = { list: [], ctx: null, week: null, sim: new Set(), layer: "status", hist: null, config: null, all: [], cmp: null };
 
   async function render() {
     L = I18N[LANG];
@@ -942,16 +1051,20 @@
     const raw = await Promise.all(state.list.map((x) => getJSON(`data/briefs/${x.id}/${LANG}.json`).catch(() => getJSON(`data/briefs/${x.id}/ru.json`))));
     const all = raw.map((x) => prepare(x, state.ctx));
     const b = all.find((x) => x.id === state.week), prev = all.filter((x) => x.id < b.id).pop() || null;
+    state.all = all;
     const app = $("#app");
     app.innerHTML = renderScreen(b, prev) + renderOverview(b, prev, all, state.hist) + renderTiles(b, all) + renderMarkets(b, state.ctx) + renderDomains(b)
-      + renderPriorities(b) + renderWhatIf(b) + renderMap(b, state.ctx) + renderCorruption(b, state.ctx) + renderJournal(b, all) + renderMethod(b) + renderAbout(b);
+      + renderPriorities(b) + renderWhatIf(b) + renderRussia(b) + renderMap(b, state.ctx) + renderCorruption(b, state.ctx) + renderJournal(b, all) + renderMethod(b) + renderAbout(b);
     wire(app, state.ctx, b);
+    wireSearch();
+    $("#cmp-select")?.addEventListener("change", (e) => { state.cmp = e.target.value; render(); });
     $("#updated").textContent = `${L.updated} ${fmtDate(state.ctx.ind.updated)}`;
     document.title = `${LANG === "en" ? "Ukraine Barometer" : L.brand} · ${L.briefNo} ${b.number}`;
   }
 
   async function main() {
-    const saved = store.get("shtab-lang"), nav = (navigator.language || "").slice(0, 2);
+    const qs = new URLSearchParams(location.search);
+    const saved = qs.get("lang") || store.get("shtab-lang"), nav = (navigator.language || "").slice(0, 2);
     LANG = LANGS.includes(saved) ? saved : nav === "uk" ? "uk" : "ru";
     L = I18N[LANG];
     renderChrome();
@@ -961,7 +1074,11 @@
       state.hist = hist; state.config = config;
       state.list = [...idx.briefs].sort((a, c) => a.id.localeCompare(c.id));
       state.ctx = { ind, front, proc, alerts };
-      const sw = store.get("shtab-week");
+      const sw = qs.get("week") || store.get("shtab-week");
+      if (config?.goatcounter && !document.getElementById("gc")) {
+        const s = document.createElement("script"); s.id = "gc"; s.async = true; s.src = "https://gc.zgo.at/count.js";
+        s.dataset.goatcounter = `https://${config.goatcounter}.goatcounter.com/count`; document.head.appendChild(s);
+      }
       state.week = state.list.some((x) => x.id === sw) ? sw : state.list[state.list.length - 1].id;
       $("#week-select").addEventListener("change", (e) => { state.week = e.target.value; store.set("shtab-week", state.week); render(); });
       document.querySelectorAll("#lang button").forEach((bt) => bt.addEventListener("click", () => { LANG = bt.dataset.lang; store.set("shtab-lang", LANG); render(); }));

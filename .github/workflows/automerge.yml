@@ -1,0 +1,50 @@
+name: Автопубликация выпуска
+# Агент открывает pull request из ветки weekly/<дата>. Владелец может одобрить и смёрджить сам.
+# Если за 24 часа этого не произошло, а проверка прошла, выпуск публикуется автоматически.
+on:
+  schedule:
+    - cron: "15 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    outputs:
+      merged: ${{ steps.m.outputs.merged }}
+    steps:
+      - id: m
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          merged=0
+          now=$(date -u +%s)
+          for row in $(gh pr list -R "$REPO" --state open --json number,headRefName,createdAt,reviewDecision -q '.[] | select(.headRefName|startswith("weekly/")) | "\(.number)|\(.createdAt)|\(.reviewDecision)"'); do
+            n=${row%%|*}; rest=${row#*|}; created=${rest%%|*}; decision=${rest#*|}
+            age=$(( now - $(date -u -d "$created" +%s) ))
+            if [ "$decision" = "CHANGES_REQUESTED" ]; then echo "PR #$n: запрошены изменения — пропуск"; continue; fi
+            if [ $age -lt 86400 ]; then echo "PR #$n: ещё на ревью ($((age/3600)) ч)"; continue; fi
+            state=$(gh pr checks "$n" -R "$REPO" --json state -q '[.[].state] | if length==0 then "NONE" elif all(.=="SUCCESS") then "OK" else "FAIL" end' || echo FAIL)
+            if [ "$state" != "OK" ]; then echo "PR #$n: проверки не пройдены ($state)"; continue; fi
+            gh pr merge "$n" -R "$REPO" --squash --delete-branch && merged=1
+          done
+          echo "merged=$merged" >> "$GITHUB_OUTPUT"
+  telegram:
+    needs: merge
+    if: needs.merge.outputs.merged == '1'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow==10.4.0
+      - env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: python make_card.py ru --send
