@@ -8,7 +8,13 @@
   const I18N = {
     ru: {
       locale: "ru-RU", brand: "Барометр", brandSub: "еженедельный индекс по открытым данным",
-      nav: { overview: "Обзор", markets: "Данные", domains: "Разбор", whatif: "Что если", russia: "Россия", map: "Карта", corruption: "Коррупция", journal: "Журнал", method: "Методика", about: "О проекте" },
+      nav: { overview: "Обзор", story: "История", markets: "Данные", domains: "Разбор", whatif: "Что если", russia: "Россия", map: "Карта", corruption: "Коррупция", journal: "Журнал", decisions: "Решения", method: "Методика", about: "О проекте" },
+      storyTitle: "История недели", storySub: "листайте — визуализация меняется вместе с текстом",
+      decisions: "Трекер решений", decisionsSub: "что приняли, подписали и что застряло",
+      dstatus: { adopted: "Принято", signed: "Подписано", pending: "Не принято", rejected: "Отклонено", vetoed: "Вето" },
+      media: "Внимание медиа", mediaSub: "публикации украинских СМИ за 7 дней · GDELT", tone: "тон", toneNote: "Тон: от −10 (резко негативный) до +10. Внимание — сколько пишут о сфере, а не насколько всё плохо.",
+      lights: "Ночная яркость", lightsSub: "спутник NASA Black Marble, к уровню 13 недель назад", lightsNote: "Экспериментальный показатель: средняя яркость ночных снимков по подконтрольным областям. Падение означает отключения и экономию света.",
+      mapPlay: "Проиграть", mapPause: "Пауза", occupied: "Оккупировано (DeepState)", week: "неделя",
       scenTitle: "Сценарии на 3 месяца", scenSub: "вероятности пересматриваются каждую неделю", scenIdx: "индекс", scenTrig: "Что укажет на этот сценарий",
       russia: "Россия: возможности противника", russiaSub: "деньги, топливо, экономика",
       prob: "Вероятность", brier: "Точность прогнозов (Brier)", brierNote: (n) => `по ${n} проверенным прогнозам; 0 — идеально, 0,25 — как подбрасывание монеты`,
@@ -49,8 +55,8 @@
       whatif: "Что если: моделирование предложений", whatifSub: (h) => `прогноз на ${h} при полном выполнении`,
       whatifLead: "Отметьте предложения, которые были бы выполнены, и посмотрите, как изменились бы оценки сфер и индекс. Влияние каждого предложения — экспертная оценка «Барометра», а не точный расчёт.",
       selAll: "Выбрать все", selNone: "Сбросить", selected: "выбрано", corrGroup: "Антикоррупция (отдельный блок)",
-      map: "Карта областей", mapSub: "плиточная схема: каждая область — одна клетка",
-      layers: { status: "Положение", alerts: "Часы тревог за неделю", noncomp: "Закупки без конкуренции, %", volume: "Закупок за неделю" },
+      map: "Карта областей", mapSub: "границы областей · оккупированная территория по неделям",
+      layers: { status: "Положение", lights: "Ночная яркость, %", alerts: "Часы тревог за неделю", noncomp: "Закупки без конкуренции, %", volume: "Закупок за неделю" },
       regStatus: { occupied: "Оккупирована", partial: "Частично оккупирована", front: "Прифронтовая / приграничная", rear: "Тыловая" },
       noData: "нет данных", mapNote: "Положение областей — общеизвестная публичная информация. Закупки — открытый API Prozorro за 7 дней, по региону заказчика; доля без конкуренции считается по числу закупок.",
       corrTitle: "Коррупционная составляющая", corrRisk: "Коррупционный риск", priceTitle: "Цена коррупции: что можно было бы купить на эти деньги",
@@ -86,7 +92,13 @@
     },
     uk: {
       locale: "uk-UA", brand: "Барометр", brandSub: "щотижневий індекс за відкритими даними",
-      nav: { overview: "Огляд", markets: "Дані", domains: "Розбір", whatif: "Що як", russia: "Росія", map: "Мапа", corruption: "Корупція", journal: "Журнал", method: "Методика", about: "Про проєкт" },
+      nav: { overview: "Огляд", story: "Історія", markets: "Дані", domains: "Розбір", whatif: "Що як", russia: "Росія", map: "Мапа", corruption: "Корупція", journal: "Журнал", decisions: "Рішення", method: "Методика", about: "Про проєкт" },
+      storyTitle: "Історія тижня", storySub: "гортайте — візуалізація змінюється разом із текстом",
+      decisions: "Трекер рішень", decisionsSub: "що ухвалили, підписали і що застрягло",
+      dstatus: { adopted: "Ухвалено", signed: "Підписано", pending: "Не ухвалено", rejected: "Відхилено", vetoed: "Вето" },
+      media: "Увага медіа", mediaSub: "публікації українських ЗМІ за 7 днів · GDELT", tone: "тон", toneNote: "Тон: від −10 (різко негативний) до +10. Увага — скільки пишуть про сферу, а не наскільки все погано.",
+      lights: "Нічна яскравість", lightsSub: "супутник NASA Black Marble, до рівня 13 тижнів тому", lightsNote: "Експериментальний показник: середня яскравість нічних знімків по підконтрольних областях. Падіння означає відключення й економію світла.",
+      mapPlay: "Програти", mapPause: "Пауза", occupied: "Окуповано (DeepState)", week: "тиждень",
       scenTitle: "Сценарії на 3 місяці", scenSub: "ймовірності переглядаються щотижня", scenIdx: "індекс", scenTrig: "Що вкаже на цей сценарій",
       russia: "Росія: можливості противника", russiaSub: "гроші, пальне, економіка",
       prob: "Ймовірність", brier: "Точність прогнозів (Brier)", brierNote: (n) => `за ${n} перевіреними прогнозами; 0 — ідеально, 0,25 — як підкидання монети`,
@@ -127,8 +139,8 @@
       whatif: "Що як: моделювання пропозицій", whatifSub: (h) => `прогноз на ${h} за повного виконання`,
       whatifLead: "Позначте пропозиції, які були б виконані, і подивіться, як змінилися б оцінки сфер та індекс. Вплив кожної пропозиції — експертна оцінка «Барометра», а не точний розрахунок.",
       selAll: "Вибрати всі", selNone: "Скинути", selected: "вибрано", corrGroup: "Антикорупція (окремий блок)",
-      map: "Мапа областей", mapSub: "плиткова схема: кожна область — одна клітинка",
-      layers: { status: "Становище", alerts: "Години тривог за тиждень", noncomp: "Закупівлі без конкуренції, %", volume: "Закупівель за тиждень" },
+      map: "Мапа областей", mapSub: "межі областей · окупована територія за тижнями",
+      layers: { status: "Становище", lights: "Нічна яскравість, %", alerts: "Години тривог за тиждень", noncomp: "Закупівлі без конкуренції, %", volume: "Закупівель за тиждень" },
       regStatus: { occupied: "Окупована", partial: "Частково окупована", front: "Прифронтова / прикордонна", rear: "Тилова" },
       noData: "немає даних", mapNote: "Становище областей — загальновідома публічна інформація. Закупівлі — відкритий API Prozorro за 7 днів, за регіоном замовника; частка без конкуренції рахується за кількістю закупівель.",
       corrTitle: "Корупційна складова", corrRisk: "Корупційний ризик", priceTitle: "Ціна корупції: що можна було б купити за ці гроші",
@@ -164,7 +176,13 @@
     },
     en: {
       locale: "en-GB", brand: "Barometer", brandSub: "a weekly index from open data",
-      nav: { overview: "Overview", markets: "Data", domains: "Analysis", whatif: "What if", russia: "Russia", map: "Map", corruption: "Corruption", journal: "Track record", method: "Method", about: "About" },
+      nav: { overview: "Overview", story: "Story", markets: "Data", domains: "Analysis", whatif: "What if", russia: "Russia", map: "Map", corruption: "Corruption", journal: "Track record", decisions: "Decisions", method: "Method", about: "About" },
+      storyTitle: "The week in a story", storySub: "scroll and the visual changes with the text",
+      decisions: "Decision tracker", decisionsSub: "what was adopted, signed and what is stuck",
+      dstatus: { adopted: "Adopted", signed: "Signed", pending: "Not adopted", rejected: "Rejected", vetoed: "Vetoed" },
+      media: "Media attention", mediaSub: "Ukrainian media coverage over 7 days · GDELT", tone: "tone", toneNote: "Tone runs from −10 (sharply negative) to +10. Attention is how much is written about an area, not how bad things are.",
+      lights: "Night-time brightness", lightsSub: "NASA Black Marble satellite, vs 13 weeks ago", lightsNote: "Experimental: average brightness of night imagery over government-controlled oblasts. A fall means outages and power saving.",
+      mapPlay: "Play", mapPause: "Pause", occupied: "Occupied (DeepState)", week: "week",
       scenTitle: "Scenarios for the next 3 months", scenSub: "probabilities are revised every week", scenIdx: "index", scenTrig: "Signals of this scenario",
       russia: "Russia: the enemy's capacity", russiaSub: "money, fuel, the economy",
       prob: "Probability", brier: "Forecast accuracy (Brier)", brierNote: (n) => `over ${n} resolved forecasts; 0 is perfect, 0.25 is a coin toss`,
@@ -205,8 +223,8 @@
       whatif: "What if: modelling the proposals", whatifSub: (h) => `projection over ${h} if fully delivered`,
       whatifLead: "Tick the proposals that would be carried out and see how area scores and the index would change. Each proposal's impact is the Barometer's expert estimate, not a precise calculation.",
       selAll: "Select all", selNone: "Clear", selected: "selected", corrGroup: "Anti-corruption (separate block)",
-      map: "Oblast map", mapSub: "tile layout: one cell per oblast",
-      layers: { status: "Situation", alerts: "Air-alert hours this week", noncomp: "Non-competitive procurement, %", volume: "Procurements this week" },
+      map: "Oblast map", mapSub: "oblast borders · occupied territory by week",
+      layers: { status: "Situation", lights: "Night brightness, %", alerts: "Air-alert hours this week", noncomp: "Non-competitive procurement, %", volume: "Procurements this week" },
       regStatus: { occupied: "Occupied", partial: "Partly occupied", front: "Front-line / border", rear: "Rear" },
       noData: "no data", mapNote: "Oblast situation is common public knowledge. Procurement comes from the open Prozorro API over 7 days, by buyer's region; the non-competitive share is by number of procurements.",
       corrTitle: "The corruption factor", corrRisk: "Corruption risk", priceTitle: "The price of corruption: what this money could have bought",
@@ -306,6 +324,12 @@
         const v = pts[pts.length - 1].occupied - pts[pts.length - 2].occupied;
         return { raw: v, text: `${v > 0 ? "+" : v < 0 ? "−" : ""}${fmtNum(Math.abs(v), 0)} ${unit("км²")}` };
       }
+      case "lights_drop_count": {
+        const w = ctx.lights?.weekly; if (!w) return null;
+        const n = Object.entries(w).filter(([k, v]) => !["crimea", "luhansk", "donetsk"].includes(k) && v.change != null && v.change < -10).length;
+        return { raw: n, text: `${n} / 22` };
+      }
+      case "lights_13w": { const v = ctx.lights?.national?.change; return v == null ? null : { raw: v, text: fmtPct(v) }; }
       case "prozorro_noncomp": {
         const p = ctx.proc; if (!p || Math.abs(Date.parse(p.updated) - Date.parse(date)) > 4 * 86400e3) return null;
         const v = p.risk_noncomp_value_share; return v == null ? null : { raw: v, text: `${fmtNum(v, 1)}%` };
@@ -624,6 +648,7 @@
       <div class="kpis kpis-wide">${manual}</div>
       <div class="sec-head" style="margin-top:18px"><h2>${esc(L.markets)}</h2><span class="label">${esc(L.marketsSub)} · ${L.on} ${fmtDate(at)}</span></div>
       <div class="kpis">${tiles.join("")}</div>
+      ${renderSignals(b, ctx)}
       <div class="charts">${charts}</div>
     </section>`;
   }
@@ -689,6 +714,87 @@
       return [d.id, Math.round((d.score + g) * 10) / 10];
     }));
   }
+  function storyVisual(key, b, ctx) {
+    const R = b.russia, idx = avgScore(b);
+    if (key === "index") return `<div class="sv-index"><span class="label">${esc(L.index)}</span><div class="sv-num">${fmtNum(idx, 1)}<small>/ 5</small></div>
+      <div class="sv-bars">${[...b.domains].sort((a, c) => a.score - c.score).map((d) => `<div class="${d.status}"><span>${esc(L.short[d.id])}</span><i style="--w:${d.score / 5 * 100}%"></i><b>${fmtNum(d.score, 1)}</b></div>`).join("")}</div></div>`;
+    if (key.startsWith("domain:")) {
+      const d = b.domains.find((x) => x.id === key.slice(7)); if (!d) return "";
+      return `<div class="sv-dom ${d.status}"><div class="sv-dh"><span class="dico">${icon(d.id)}</span><b>${esc(d.name)}</b><span class="pill">${esc(d.statusLabel)}</span></div>
+        <div class="sv-num">${fmtNum(d.score, 1)}<small>/ 5</small></div>
+        <ul>${(d.metrics || []).map((m) => `<li><span>${esc(m.label)}</span><b>${esc(m.value)}</b>${m.score ? `<span class="sc s${m.score}">${m.score}</span>` : ""}</li>`).join("")}</ul></div>`;
+    }
+    if (key === "map") return `<div class="sv-map">${mapSvg(b, ctx, "status", null, true)}<span class="label">${esc(L.occupied)}</span></div>`;
+    if (key === "russia" && R) return `<div class="sv-ru">${R.kpis.slice(0, 4).map((k) => `<div class="${k.dir === "bad" ? "crit" : k.dir === "good" ? "ok" : "info"}"><span class="label">${esc(k.label)}</span><b>${esc(k.value)}</b><span>${esc(k.sub)}</span></div>`).join("")}</div>`;
+    if (key === "scenarios" && b.scenarios) return `<div class="sv-sc">${[...b.scenarios].sort((a, c) => c.prob - a.prob).map((s) => `<div class="${{ base: "info", pess: "crit", opt: "ok" }[s.id]}"><span>${esc(s.name)}</span><i style="--w:${s.prob * 100}%"></i><b>${Math.round(s.prob * 100)}%</b></div>`).join("")}</div>`;
+    return "";
+  }
+
+  function renderStory(b, ctx) {
+    if (!b.story?.length) return "";
+    return `<section id="story" class="story">
+      <div class="sec-head"><h2>${esc(L.storyTitle)}</h2><span class="label">${esc(L.storySub)}</span></div>
+      <div class="story-grid">
+        <div class="story-steps">${b.story.map((s, i) => `<article class="step card" data-step="${i}"><span class="step-n">${String(i + 1).padStart(2, "0")}</span><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p>
+          <div class="step-vis-m">${storyVisual(s.visual, b, ctx)}</div></article>`).join("")}</div>
+        <div class="story-stage"><div class="card stage-in" id="stage">${storyVisual(b.story[0].visual, b, ctx)}</div></div>
+      </div>
+    </section>`;
+  }
+
+  function wireStory(app, b, ctx) {
+    const stage = $("#stage", app); if (!stage || !("IntersectionObserver" in window)) return;
+    if (state.storyObs) state.storyObs.disconnect();
+    let cur = 0;
+    const steps = [...app.querySelectorAll(".step")];
+    steps[0]?.classList.add("on");
+    state.storyObs = new IntersectionObserver((es) => es.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const i = +e.target.dataset.step; if (i === cur) return;
+      cur = i; steps.forEach((s) => s.classList.toggle("on", s === e.target));
+      stage.classList.add("swap");
+      setTimeout(() => { stage.innerHTML = storyVisual(b.story[i].visual, b, ctx); stage.classList.remove("swap"); }, 160);
+    }), { rootMargin: "-45% 0px -45% 0px" });
+    steps.forEach((s) => state.storyObs.observe(s));
+  }
+
+  /* ---------- Трекер решений ---------- */
+  function renderDecisions(b, all) {
+    const list = all.filter((x) => x.id <= b.id).flatMap((x) => x.decisions || []);
+    const seen = new Set(), uniq = list.filter((d) => { const k = d.date + d.title; if (seen.has(k)) return false; seen.add(k); return true; })
+      .sort((a, c) => c.date.localeCompare(a.date));
+    if (!uniq.length) return "";
+    const cls = { adopted: "ok", signed: "ok", pending: "warn", rejected: "crit", vetoed: "crit" };
+    return `<section id="decisions">
+      <div class="sec-head"><h2>${esc(L.decisions)}</h2><span class="label">${esc(L.decisionsSub)}</span></div>
+      <div class="card dec-list">${uniq.map((d) => `<div class="dec ${cls[d.status] || "info"}">
+        <span class="dec-date mono">${fmtDate(d.date)}</span>
+        <span class="dico sm" style="--c:var(--accent);--cb:var(--accent-soft)">${icon(d.sphere)}</span>
+        <div class="dec-body"><a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a><span class="muted">${esc(d.body)}</span></div>
+        <span class="pill">${esc(L.dstatus[d.status] || d.status)}</span></div>`).join("")}</div>
+    </section>`;
+  }
+
+  /* ---------- Медиа и ночная яркость ---------- */
+  function renderSignals(b, ctx) {
+    const M = ctx.media?.spheres, Lt = ctx.lights;
+    if (!M && !Lt?.national) return "";
+    const max = M ? Math.max(...Object.values(M).map((x) => x.week), 1) : 1;
+    const media = M ? `<div class="card media"><div class="sec-head"><h3>${esc(L.media)}<span class="tag">${L.auto}</span></h3><span class="label">${esc(L.mediaSub)}</span></div>
+      <div class="mbars">${b.domains.filter((d) => M[d.id]).sort((a, c) => M[c.id].week - M[a.id].week).map((d) => { const m = M[d.id];
+        const tc = m.tone == null ? "" : m.tone < -3 ? "crit" : m.tone < -1 ? "warn" : "ok";
+        return `<div class="mb"><span class="mb-n">${esc(L.short[d.id])}</span><span class="mb-t"><i style="width:${m.week / max * 100}%"></i></span>
+          <span class="mono mb-v">${fmtNum(m.week, 0)}</span><span class="mono mb-c ${m.change > 0 ? "up" : m.change < 0 ? "down" : ""}">${fmtPct(m.change)}</span>
+          <span class="mb-tone ${tc}" title="${esc(L.tone)} ${m.tone ?? "—"}">${m.tone == null ? "—" : fmtNum(m.tone, 1)}</span></div>`; }).join("")}</div>
+      <p class="basis">${esc(L.toneNote)}</p></div>` : "";
+    const n = Lt?.national;
+    const lights = n ? `<div class="card kpi lights"><span class="label">${esc(L.lights)}<span class="tag">${L.auto}</span></span>
+      <span class="v">${fmtPct(n.change)}</span><span class="s ${n.change < -3 ? "bad" : n.change > 3 ? "good" : ""}">${esc(L.lightsSub)}</span>
+      ${Lt.series?.length > 1 ? sparkline(Lt.series) : ""}<span class="src">NASA Black Marble · ${confBadge("estimate")}</span>
+      <p class="basis">${esc(L.lightsNote)}</p></div>` : "";
+    return `<div class="signals">${lights}${media}</div>`;
+  }
+
   function renderScenarios(b) {
     if (!b.scenarios?.length) return "";
     const cls = { base: "info", pess: "crit", opt: "ok" };
@@ -755,7 +861,100 @@
     const hit = Object.entries(proc.regions).find(([name]) => key === "@kyivcity" ? /^(м\.\s*)?Київ$|^місто Київ$/i.test(name.trim()) : name.startsWith(key));
     return hit ? hit[1] : null;
   }
+  /* Проекция: равнопромежуточная с поправкой на широту */
+  const MAP = { lon0: 22, lat1: 52.45, kx: 0.6626, k: 41.5 };
+  const mx = (lon) => (lon - MAP.lon0) * MAP.kx * MAP.k, my = (lat) => (MAP.lat1 - lat) * MAP.k;
+  const pathOf = (polys) => polys.map((p) => "M" + p.map(([x, y]) => `${mx(x).toFixed(1)} ${my(y).toFixed(1)}`).join("L") + "Z").join("");
+
+  function regionValue(layer, r, b, ctx) {
+    const st = b.regions?.[r[0]] || "rear", p = regionProc(ctx.proc, r);
+    if (layer === "status") return { cls: `rs-${st}`, tip: L.regStatus[st] };
+    if (layer === "lights") {
+      const c = ctx.lights?.weekly?.[r[0]]?.change;
+      if (c == null || ["crimea", "luhansk", "donetsk"].includes(r[0])) return { cls: "nd", tip: L.noData };
+      const q = c <= -25 ? "d4" : c <= -12 ? "d3" : c <= -4 ? "d2" : c < 4 ? "d1" : "d0";
+      return { cls: q, tip: fmtPct(c), val: fmtPct(c) };
+    }
+    if (layer === "alerts") { const h = ctx.alerts?.regions?.[r[0]]; return h == null ? { cls: "nd", tip: L.noData } : { cls: `q${Math.min(4, Math.floor(h / 30))}`, tip: `${fmtNum(h, 0)} ${LANG === "en" ? "h" : "ч"}`, val: fmtNum(h, 0) }; }
+    if (layer === "noncomp") { const s = p && p.total ? (p.noncomp / p.total) * 100 : null; return s == null ? { cls: "nd", tip: L.noData } : { cls: `q${Math.min(4, Math.floor(s / 15))}`, tip: `${fmtNum(s, 1)}%`, val: `${fmtNum(s, 0)}%` }; }
+    const max = Math.max(...REGIONS.map((rr) => regionProc(ctx.proc, rr)?.total || 0), 1);
+    return p ? { cls: `q${Math.min(4, Math.floor(Math.sqrt((p.total || 0) / max) * 5))}`, tip: fmtNum(p.total, 0), val: fmtNum(p.total, 0) } : { cls: "nd", tip: L.noData };
+  }
+
+  function mapSvg(b, ctx, layer, frameIdx, small) {
+    const ob = ctx.oblasts?.oblasts || {}, frames = ctx.frontline?.frames || [];
+    const f = frames[frameIdx ?? frames.length - 1];
+    const W = Math.round(mx(40.3)), H = Math.round(my(44.3));
+    const shapes = REGIONS.filter((r) => ob[r[0]]).map((r) => {
+      const v = regionValue(layer, r, b, ctx);
+      return `<path class="ob ${v.cls}" fill-rule="evenodd" d="${pathOf(ob[r[0]])}"><title>${esc(regName(r))}: ${esc(v.tip)}</title></path>`;
+    }).join("");
+    const occ = f ? `<path class="occ" d="${pathOf(f.occupied)}"/>` : "";
+    const kc = ctx.oblasts?.kyiv_city;
+    const labels = small ? "" : REGIONS.filter((r) => ob[r[0]]).map((r) => {
+      const pts = ob[r[0]].reduce((a, p) => (p.length > a.length ? p : a), []);
+      const cx = pts.reduce((s, q) => s + q[0], 0) / pts.length, cy = pts.reduce((s, q) => s + q[1], 0) / pts.length;
+      const v = regionValue(layer, r, b, ctx);
+      return v.val ? `<text class="ol" x="${mx(cx).toFixed(0)}" y="${my(cy).toFixed(0)}" text-anchor="middle">${esc(v.val)}</text>` : "";
+    }).join("");
+    return `<svg class="umap" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(L.map)}">
+      <defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(255,95,95,.32)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,120,120,.95)" stroke-width="2.4"/></pattern></defs>
+      <g>${shapes}</g><g id="occ-layer">${occ}</g>
+      ${kc ? `<circle class="kyiv" cx="${mx(kc[0])}" cy="${my(kc[1])}" r="${small ? 3 : 4.5}"><title>${esc(regName(REGIONS.find((r) => r[0] === "kyiv")))}</title></circle>` : ""}
+      ${labels}</svg>`;
+  }
+
   function renderMap(b, ctx) {
+    if (ctx.oblasts?.oblasts) {
+      const layer = state.layer || "status", frames = ctx.frontline?.frames || [];
+      const fi = state.frame ?? frames.length - 1;
+      const legend = layer === "status"
+        ? ["occupied", "partial", "front", "rear"].map((s) => `<span><i class="rs-${s}"></i>${esc(L.regStatus[s])}</span>`).join("")
+        : layer === "lights"
+          ? `<span class="grad"><i class="d4"></i><i class="d3"></i><i class="d2"></i><i class="d1"></i><i class="d0"></i></span><span>−25% … 0 … +</span><span><i class="nd"></i>${esc(L.noData)}</span>`
+          : `<span class="grad"><i class="q0"></i><i class="q1"></i><i class="q2"></i><i class="q3"></i><i class="q4"></i></span><span>↑</span><span><i class="nd"></i>${esc(L.noData)}</span>`;
+      const procOk = !!ctx.proc;
+      return `<section id="map">
+        <div class="sec-head"><h2>${esc(L.map)}</h2><span class="label">${esc(L.mapSub)}</span></div>
+        <div class="card mapcard">
+          <div class="seg map-seg" role="group">${Object.entries(L.layers).map(([k, tt]) => `<button type="button" id="layer-${k}" data-layer="${k}" aria-pressed="${k === layer}" ${((k === "noncomp" || k === "volume") && !procOk) || (k === "alerts" && !ctx.alerts) || (k === "lights" && !ctx.lights) ? "disabled" : ""}>${esc(tt)}</button>`).join("")}</div>
+          <div class="map-wrap" id="map-wrap">${mapSvg(b, ctx, layer, fi)}</div>
+          ${frames.length > 1 ? `<div class="timeline"><button type="button" class="btn ghost" id="map-play">${esc(L.mapPlay)}</button>
+            <input type="range" id="map-frame" min="0" max="${frames.length - 1}" value="${fi}" aria-label="${esc(L.week)}">
+            <span class="mono" id="map-date">${fmtDate(frames[fi].date)} · ${fmtNum((ctx.front?.points || [])[fi]?.occupied || 0, 0)} ${unit("км²")}</span></div>` : ""}
+          <div class="map-legend">${legend}<span><i class="occ-k"></i>${esc(L.occupied)}</span></div>
+          <p class="basis">${esc(L.mapNote)}${layer === "lights" ? " " + esc(L.lightsNote) : ""}</p>
+        </div>
+      </section>`;
+    }
+    return renderTileMap(b, ctx);
+  }
+
+  function wireMap(app, ctx, b) {
+    const frames = ctx.frontline?.frames || [];
+    const rng = $("#map-frame"), lbl = $("#map-date"), play = $("#map-play");
+    const setFrame = (i) => {
+      state.frame = i;
+      const g = $("#occ-layer"); if (g) g.innerHTML = `<path class="occ" d="${pathOf(frames[i].occupied)}"/>`;
+      if (lbl) lbl.textContent = `${fmtDate(frames[i].date)} · ${fmtNum((ctx.front?.points || [])[i]?.occupied || 0, 0)} ${unit("км²")}`;
+      if (rng) rng.value = i;
+    };
+    rng?.addEventListener("input", () => setFrame(+rng.value));
+    play?.addEventListener("click", () => {
+      if (state.timer) { clearInterval(state.timer); state.timer = null; play.textContent = L.mapPlay; return; }
+      play.textContent = L.mapPause;
+      let i = 0; setFrame(0);
+      state.timer = setInterval(() => { i++; if (i >= frames.length) { clearInterval(state.timer); state.timer = null; play.textContent = L.mapPlay; return; } setFrame(i); }, 650);
+    });
+    app.querySelectorAll("[data-layer]").forEach((bt) => bt.addEventListener("click", () => {
+      state.layer = bt.dataset.layer;
+      const sec = $("#map", app), tmp = document.createElement("div");
+      tmp.innerHTML = renderMap(b, ctx); sec.replaceWith(tmp.firstElementChild);
+      wireMap(app, ctx, b);
+    }));
+  }
+
+  function renderTileMap(b, ctx) {
     const layer = state.layer || "status";
     const cells = REGIONS.map((r) => {
       const st = b.regions?.[r[0]] || "rear", p = regionProc(ctx.proc, r);
@@ -903,6 +1102,7 @@
       <div class="method-grid">
         <div class="card mcard"><h3>${esc(L.methodIndex)}</h3><p>${esc(L.methodIndexText)}</p>
           ${state.hist?.validation ? `<h3>${esc(L.validation)}</h3><p>${esc(state.hist.validation[LANG] || state.hist.validation.ru)}</p>` : ""}
+          ${state.hist?.lightsNote ? `<h3>${esc(L.lights)}</h3><p>${esc(L.lightsNote)} ${esc(state.hist.lightsNote[LANG] || state.hist.lightsNote.ru)}</p>` : ""}
           <h3>${esc(L.confLegend)}</h3><div class="cf-legend">${Object.keys(L.conf).map((c) => confBadge(c)).join("")}</div></div>
         <div class="card mcard"><h3>${esc(L.rules)}</h3><ul>${L.rulesList.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
           <h3>${esc(L.corrections)}</h3>${(b.corrections || []).length ? `<ul>${b.corrections.map((c) => `<li><span class="mono">${esc(c.date)}</span> ${esc(c.text)}</li>`).join("")}</ul>` : `<p class="muted">${esc(L.noCorrections)}</p>`}</div>
@@ -935,7 +1135,8 @@
             <ul class="dl"><li><a href="data/export/barometer.csv">${esc(L.dlCsv)}</a></li><li><a href="data/briefs/${b.id}/${LANG}.json">${esc(L.dlJson)}</a></li>
             <li><a href="feed${LANG === "ru" ? "" : "-" + LANG}.xml">${esc(L.rss)}</a></li>
             ${C.telegramUrl ? `<li><a href="${esc(C.telegramUrl)}" target="_blank" rel="noopener">${esc(L.subscribe)}</a></li>` : ""}
-            <li><a href="issues/${b.id}/${LANG === "ru" ? "" : LANG + ".html"}">${esc(L.shareIssue)}</a></li></ul></div>
+            <li><a href="issues/${b.id}/${LANG === "ru" ? "" : LANG + ".html"}">${esc(L.shareIssue)}</a></li>
+            <li><a href="issues/${b.id}/barometer-${b.id}-${LANG}.pdf" download>PDF · ${L.briefNo} ${b.number}</a></li></ul></div>
           <div class="card mcard"><h3>${esc(L.embedTitle)}</h3><p>${esc(L.embedText)}</p>
             <textarea class="embed-code" id="embed-code" readonly rows="4">${esc(embed)}</textarea>
             <button type="button" class="btn ghost" id="embed-copy" style="justify-self:start">${esc(L.copy)}</button></div>
@@ -990,7 +1191,7 @@
   function renderChrome() {
     document.documentElement.lang = LANG;
     document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = L[el.dataset.i18n]; });
-    const NAV_ICON = { overview: "spark", markets: "economy", domains: "front", whatif: "up", russia: "airdef", map: "diplomacy", corruption: "anticorr", journal: "info", method: "finance", about: "society" };
+    const NAV_ICON = { story: "drone", decisions: "shield", overview: "spark", markets: "economy", domains: "front", whatif: "up", russia: "airdef", map: "diplomacy", corruption: "anticorr", journal: "info", method: "finance", about: "society" };
     $("#nav").innerHTML = Object.entries(L.nav).map(([id, t]) => `<a href="#${id}" data-sec="${id}">${icon(NAV_ICON[id])}<span>${esc(t)}</span></a>`).join("");
     document.querySelectorAll("#lang button").forEach((bt) => bt.setAttribute("aria-pressed", String(bt.dataset.lang === LANG)));
     $("#foot-note").textContent = L.foot;
@@ -1024,12 +1225,9 @@
       try { await navigator.clipboard.writeText(ta.value); e.target.textContent = L.copied; } catch (err) { ta.select(); }
     });
     // Карта
-    app.querySelectorAll("[data-layer]").forEach((bt) => bt.addEventListener("click", () => {
-      state.layer = bt.dataset.layer;
-      const sec = $("#map", app), tmp = document.createElement("div");
-      tmp.innerHTML = renderMap(b, ctx); sec.replaceWith(tmp.firstElementChild);
-      wire.mapOnly(app, ctx, b);
-    }));
+    if (state.timer) { clearInterval(state.timer); state.timer = null; }
+    wireMap(app, ctx, b);
+    wireStory(app, b, ctx);
     if (observer) observer.disconnect();
     if ("IntersectionObserver" in window) {
       const links = [...document.querySelectorAll("#nav a")];
@@ -1060,8 +1258,8 @@
     const b = all.find((x) => x.id === state.week), prev = all.filter((x) => x.id < b.id).pop() || null;
     state.all = all;
     const app = $("#app");
-    app.innerHTML = renderScreen(b, prev) + renderOverview(b, prev, all, state.hist) + renderTiles(b, all) + renderMarkets(b, state.ctx) + renderDomains(b)
-      + renderPriorities(b) + renderWhatIf(b) + renderRussia(b) + renderMap(b, state.ctx) + renderCorruption(b, state.ctx) + renderJournal(b, all) + renderMethod(b) + renderAbout(b);
+    app.innerHTML = renderScreen(b, prev) + renderOverview(b, prev, all, state.hist) + renderStory(b, state.ctx) + renderTiles(b, all) + renderMarkets(b, state.ctx) + renderDomains(b)
+      + renderPriorities(b) + renderWhatIf(b) + renderRussia(b) + renderMap(b, state.ctx) + renderCorruption(b, state.ctx) + renderJournal(b, all) + renderDecisions(b, all) + renderMethod(b) + renderAbout(b);
     wire(app, state.ctx, b);
     wireSearch();
     $("#cmp-select")?.addEventListener("change", (e) => { state.cmp = e.target.value; render(); });
@@ -1078,9 +1276,10 @@
     try {
       const [idx, ind, front, proc, hist, config, alerts] = await Promise.all([getJSON("data/briefs/index.json"), getJSON("data/indicators.json"),
         getJSON("data/front.json", true), getJSON("data/procurement.json", true), getJSON("data/history.json", true), getJSON("config.json", true), getJSON("data/alerts.json", true)]);
+      const [oblasts, frontline, lights, media] = await Promise.all(["oblasts", "frontline", "lights", "media"].map((n) => getJSON(`data/${n}.json`, true)));
       state.hist = hist; state.config = config;
       state.list = [...idx.briefs].sort((a, c) => a.id.localeCompare(c.id));
-      state.ctx = { ind, front, proc, alerts };
+      state.ctx = { ind, front, proc, alerts, oblasts, frontline, lights, media };
       const sw = qs.get("week") || store.get("shtab-week");
       if (config?.goatcounter && !document.getElementById("gc")) {
         const s = document.createElement("script"); s.id = "gc"; s.async = true; s.src = "https://gc.zgo.at/count.js";

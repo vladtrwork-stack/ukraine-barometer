@@ -106,6 +106,10 @@ def auto_values(date):
     if fr.exists():
         pts = [p for p in load(fr)["points"] if p["date"] <= date]
         out["front_week_km2"] = pts[-1]["occupied"] - pts[-2]["occupied"] if len(pts) > 1 else None
+    lt = DATA / "lights.json"
+    if lt.exists():
+        w = load(lt).get("weekly", {})
+        out["lights_drop_count"] = sum(1 for k, v in w.items() if k not in ("crimea", "luhansk", "donetsk") and v.get("change") is not None and v["change"] < -10)
     pr = DATA / "procurement.json"
     if pr.exists():
         p = load(pr)
@@ -115,9 +119,9 @@ def auto_values(date):
 
 
 UI = {
-    "ru": {"idx": "Индекс устойчивости", "open": "Открыть полный выпуск", "issue": "Выпуск №", "main": "Главное за неделю", "areas": "Сферы"},
-    "uk": {"idx": "Індекс стійкості", "open": "Відкрити повний випуск", "issue": "Випуск №", "main": "Головне за тиждень", "areas": "Сфери"},
-    "en": {"idx": "Resilience index", "open": "Open the full issue", "issue": "Issue No.", "main": "This week's key points", "areas": "Areas"},
+    "ru": {"idx": "Индекс устойчивости", "open": "Открыть полный выпуск", "issue": "Выпуск №", "main": "Главное за неделю", "areas": "Сферы", "src": "независимая аналитика по открытым источникам; источники и методика — на сайте"},
+    "uk": {"idx": "Індекс стійкості", "open": "Відкрити повний випуск", "issue": "Випуск №", "main": "Головне за тиждень", "areas": "Сфери", "src": "незалежна аналітика за відкритими джерелами; джерела й методика — на сайті"},
+    "en": {"idx": "Resilience index", "open": "Open the full issue", "issue": "Issue No.", "main": "This week's key points", "areas": "Areas", "src": "independent open-source analysis; sources and method on the website"},
 }
 COLORS = {"crit": "#ff5f5f", "warn": "#ffb340", "info": "#5b9cff", "ok": "#34d399"}
 
@@ -146,11 +150,15 @@ main{{max-width:860px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-le
 .ix{{font:600 64px/1 Unbounded,sans-serif;letter-spacing:-.04em}}.ix small{{font-size:20px;color:var(--muted)}}
 .c{{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px}}ul{{list-style:none;margin:0;padding:0;display:grid;gap:10px}}
 .a li{{display:grid;grid-template-columns:10px 1fr auto;gap:10px;align-items:center}}.a span{{width:10px;height:10px;border-radius:50%}}
-.h p{{margin:2px 0 0;color:var(--muted)}}a.b{{justify-self:start;background:var(--accent);color:#fff;text-decoration:none;padding:12px 18px;border-radius:12px;font-weight:600}}</style></head>
+.h p{{margin:2px 0 0;color:var(--muted)}}a.b{{justify-self:start;background:var(--accent);color:#fff;text-decoration:none;padding:12px 18px;border-radius:12px;font-weight:600}}
+.row{{display:flex;gap:10px;flex-wrap:wrap}}a.g{{background:transparent;color:var(--ink);border:1px solid var(--line)}}
+.src{{font-size:12px;color:var(--muted)}}
+@media print{{:root{{--bg:#fff;--card:#fff;--ink:#0d1526;--muted:#56627a;--line:#d8dde8;color-scheme:light}}main{{padding:0}}.row{{display:none}}.c{{break-inside:avoid}}@page{{margin:16mm}}}}</style></head>
 <body><main><span class="k">{e(NAME[lang])} · {T['issue']} {b['number']} · {e(b['period'])}</span><h1>{e(T['main'])}</h1>
 <div class="c"><span class="k">{e(T['idx'])}</span><div class="ix">{num}<small> / 5</small></div></div>
 <div class="c h"><ul>{heads}</ul></div><div class="c a"><span class="k">{e(T['areas'])}</span><ul style="margin-top:12px">{rows}</ul></div>
-<a class="b" href="{app}">{e(T['open'])} →</a></main></body></html>"""
+<div class="row"><a class="b" href="{app}">{e(T['open'])} →</a><a class="b g" href="barometer-{b['id']}-{lang}.pdf" download>PDF</a></div>
+<p class="src">{e(NAME[lang])} · {e(base or '')} · {e(T['src'])}</p></main></body></html>"""
 
 
 def bust_cache():

@@ -108,8 +108,9 @@ def main():
         print("Ошибки:", *out["errors"], sep="\n  ")
 
     # Дополнительные автоисточники (каждый пишет свой файл в site/data)
-    import collect_front, collect_prozorro, collect_alerts
-    for name, mod in [("DeepState", collect_front), ("Prozorro", collect_prozorro), ("Тревоги", collect_alerts)]:
+    import collect_front, collect_prozorro, collect_alerts, collect_lights, collect_media
+    for name, mod in [("DeepState", collect_front), ("Prozorro", collect_prozorro), ("Тревоги", collect_alerts),
+                      ("Ночная яркость NASA", collect_lights), ("Медиа GDELT", collect_media)]:
         try:
             print(f"{name}…")
             mod.main()

@@ -11,6 +11,10 @@
 ```
 collect.py              все автоисточники: НБУ → indicators.json, затем DeepState и Prozorro
 collect_front.py        площадь оккупированной и «серой» территории (DeepState) → site/data/front.json
+collect_lights.py       ночная яркость по областям (NASA Black Marble через GIBS, без ключа) → site/data/lights.json
+collect_media.py        внимание и тон украинских СМИ по сферам (GDELT) → site/data/media.json
+geo.py                  границы областей (OSM) → site/data/oblasts.json (запускается один раз)
+make_pdf.py             PDF выпусков через headless Chrome/Edge
 collect_prozorro.py     закупки: темы риска за 30 дней и доля без конкуренции по регионам → site/data/procurement.json
 make_card.py            карточка для соцсетей site/card.png и текст поста build/telegram_<lang>.txt (--send — отправить)
 build_artifact.py       сборка версии для Claude Artifact → build/artifact.html
@@ -53,6 +57,8 @@ python -m http.server 8000 --directory site
 | `journal[]` | `rec` (ключ, по нему записи сливаются между неделями), `check`, `due`, `status`, `result`, `prob` (вероятность 0–1) |
 | `scenarios[]` | `id` (base/pess/opt), `prob`, `index` [мин, макс], `name`, `text`, `triggers[]` |
 | `russia` | `lead`, `kpis[]` (как kpis), `note` |
+| `story[]` | `visual` (index / domain:<id> / map / russia / scenarios), `title`, `text` |
+| `decisions[]` | `date`, `body`, `sphere`, `status`, `title`, `url`, `rec` |
 | `gaps[]`, `sources[]` | пробелы в данных; `{title, url}` |
 
 ## Хостинг

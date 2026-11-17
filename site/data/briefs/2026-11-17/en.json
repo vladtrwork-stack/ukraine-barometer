@@ -166,7 +166,7 @@
       90,
       130
      ],
-     "weight": 0.35,
+     "weight": 0.3,
      "conf": "single",
      "source": "УП, Минэнерго"
     },
@@ -181,7 +181,7 @@
       14,
       20
      ],
-     "weight": 0.35,
+     "weight": 0.25,
      "conf": "estimate",
      "source": "Укрэнерго, УП"
     },
@@ -196,9 +196,25 @@
       60,
       80
      ],
-     "weight": 0.3,
+     "weight": 0.2,
      "conf": "single",
      "source": "ТСК ВР, DSnews"
+    },
+    {
+     "label": "Oblasts where night brightness fell >10% (NASA)",
+     "raw": null,
+     "value": "auto",
+     "better": "lower",
+     "thresholds": [
+      1,
+      3,
+      6,
+      10
+     ],
+     "weight": 0.25,
+     "conf": "auto",
+     "source": "NASA Black Marble",
+     "auto": "lights_drop_count"
     }
    ],
    "scoreExpert": 1
@@ -1477,6 +1493,10 @@
   {
    "date": "2026-11-17",
    "text": "Three expert sub-indicators (offensive threat, progress in talks, willingness to resist) were replaced with measurable ones: ISW-confirmed advances, number of negotiation rounds, share ready to endure the war (KIIS)."
+  },
+  {
+   "date": "2026-11-17",
+   "text": "Energy: added a measurable indicator, the number of government-controlled oblasts where night brightness in NASA Black Marble imagery fell by more than 10% vs 13 weeks earlier. Weights: attacks 30%, outages 25%, substation protection 20%, night brightness 25%."
   }
  ],
  "scenarios": [
@@ -1569,5 +1589,104 @@
    }
   ],
   "note": "Refinery strikes cause fuel shortages inside Russia but have not yet cut its export revenue: crude exports are rising."
- }
+ },
+ "story": [
+  {
+   "visual": "index",
+   "title": "Ukraine enters winter at 2.4 out of 5",
+   "text": "That is below the middle of the scale. Two of nine areas are critical, energy and air defence, and both share one cause: Russia hits the grid faster than it can be repaired and protected."
+  },
+  {
+   "visual": "domain:energy",
+   "title": "Energy: 310 attacks since early November",
+   "text": "Scheduled outages in almost every oblast, all-day cuts in parts of the country. The strikes target substations rather than generation, so the answer is decentralisation, not just repair."
+  },
+  {
+   "visual": "map",
+   "title": "The front holds but slowly shifts",
+   "text": "Occupied territory grew by about 27 km² over the week. Near Kostiantynivka there is a lull that ISW analysts see as preparation for a push on Druzhkivka."
+  },
+  {
+   "visual": "domain:finance",
+   "title": "Money for 2027: $32.6bn missing",
+   "text": "The European Commission is tabling a €45bn loan. Its fate also depends on how the authorities handle the Carthage case: the scandal hurts partners' trust more than ratings."
+  },
+  {
+   "visual": "russia",
+   "title": "Russia: short of fuel, flush with cash",
+   "text": "Refinery strikes knocked out about 30% of refining, yet October oil revenue was 65% higher than a year ago: Russia is simply selling more crude."
+  },
+  {
+   "visual": "scenarios",
+   "title": "What next: three scenarios",
+   "text": "Base (55%): a protracted standoff until spring. Pessimistic (25%): energy collapse and pressure. Optimistic (20%): stabilisation after agreements."
+  }
+ ],
+ "decisions": [
+  {
+   "date": "2026-10-26",
+   "body": "Verkhovna Rada",
+   "sphere": "army",
+   "status": "adopted",
+   "title": "General mobilisation extended for 90 days",
+   "url": "https://krivbass.city/news/view/mobilizatsiya-u-krivomu-rozi-v-listopadi-2026-roku-yaki-pravila-diyut-shho-zminilosya-ta-kudi-zvertatisya"
+  },
+  {
+   "date": "2026-10-29",
+   "body": "NBU",
+   "sphere": "economy",
+   "status": "adopted",
+   "title": "Key rate raised to 16.5%",
+   "url": "https://h.ua/2026/11/06/nbu-pidvyshchyv-stavku-do-16-5-prognoz-inflatsii-2026"
+  },
+  {
+   "date": "2026-11-10",
+   "body": "Verkhovna Rada",
+   "sphere": "anticorr",
+   "status": "adopted",
+   "title": "Law No. 15056: liability for bribing foreign officials",
+   "url": "https://suspilne.media/tag/verhovna-rada/"
+  },
+  {
+   "date": "2026-11-10",
+   "body": "Verkhovna Rada",
+   "sphere": "economy",
+   "status": "adopted",
+   "title": "Law simplifying VAT administration",
+   "url": "https://suspilne.media/tag/verhovna-rada/"
+  },
+  {
+   "date": "2026-11-10",
+   "body": "Verkhovna Rada",
+   "sphere": "society",
+   "status": "adopted",
+   "title": "Reform of concessionary public transport fares",
+   "url": "https://suspilne.media/tag/verhovna-rada/"
+  },
+  {
+   "date": "2026-11-13",
+   "body": "SBU",
+   "sphere": "anticorr",
+   "status": "adopted",
+   "title": "Internal review over the Carthage case, two dismissed",
+   "url": "https://www.pravda.com.ua/news/2026/11/13/8062788/"
+  },
+  {
+   "date": "2026-11-16",
+   "body": "European Union",
+   "sphere": "finance",
+   "status": "adopted",
+   "title": "Ukraine Facility: tranche of nearly €8bn",
+   "url": "https://www.intellinews.com/eu-readies-45bn-budget-backed-loan-for-ukraine-as-imf-puts-gap-at-50bn-485612"
+  },
+  {
+   "date": "2026-11-17",
+   "body": "Verkhovna Rada",
+   "sphere": "anticorr",
+   "status": "pending",
+   "rec": "Антикоррупционная стратегия",
+   "title": "Anti-corruption strategy 2026–2030 (No. 15230-d) not yet adopted",
+   "url": "https://zmina.info/news/na-tli-novyh-vykryttiv-nabu-v-kyyevi-vymagaly-reformuvannya-dbr-i-prozorogo-konkursu-na-posadu-genprokurora/"
+  }
+ ]
 }

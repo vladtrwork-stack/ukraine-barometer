@@ -4,6 +4,7 @@
 Считается только то, что DeepState уже публикует открыто; никаких новых данных о позициях.
 """
 import json, math, sys, datetime as dt, urllib.request, pathlib
+from geo import simplify
 
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "site" / "data" / "front.json"
@@ -46,17 +47,22 @@ def classify(name):
     return None
 
 
-def areas(gid):
+def areas(gid, shapes=None):
     g = get(f"{API}/{gid}/geojson")
     acc = {"occupied": 0.0, "unknown": 0.0}
     for f in g.get("features", []):
         geom, kind = f.get("geometry") or {}, classify(f.get("properties", {}).get("name"))
         if kind not in acc:
             continue
-        if geom.get("type") == "Polygon":
-            acc[kind] += poly_area(geom["coordinates"])
-        elif geom.get("type") == "MultiPolygon":
-            acc[kind] += sum(poly_area(p) for p in geom["coordinates"])
+        polys = [geom["coordinates"]] if geom.get("type") == "Polygon" else geom.get("coordinates", []) if geom.get("type") == "MultiPolygon" else []
+        for p in polys:
+            acc[kind] += poly_area(p)
+            if shapes is not None and kind == "occupied":
+                ring = [(round(x, 3), round(y, 3)) for x, y, *_ in p[0]]
+                if all(22 <= x <= 41 and 44 <= y <= 53 for x, y in ring[:5]):
+                    s = simplify(ring, 0.02)
+                    if len(s) >= 4 and poly_area([s]) > 30:
+                        shapes.append(s)
     return {k: round(v) for k, v in acc.items()}
 
 
@@ -69,14 +75,18 @@ def main(weeks=12):
         best = min(hist, key=lambda x: abs(x["id"] - target))
         if not picks or picks[-1] != best["id"]:
             picks.append(best["id"])
-    points = []
+    points, frames = [], []
     for gid in picks:
-        a = areas(gid)
+        shapes = []
+        a = areas(gid, shapes)
         d = dt.datetime.fromtimestamp(gid, dt.timezone.utc).date().isoformat()
         points.append({"date": d, **a})
+        frames.append({"date": d, "occupied": shapes})
         print(f"  front {d}: оккуп. {a['occupied']:,} км², серая {a['unknown']:,} км²")
     out = {"updated": dt.date.today().isoformat(), "source": "DeepState", "url": "https://deepstatemap.live", "points": points}
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    # Контуры оккупированной территории по неделям — для карты с ползунком времени (упрощены до ~2 км)
+    (OUT.parent / "frontline.json").write_text(json.dumps({"source": "DeepState", "frames": frames}, separators=(",", ":")), encoding="utf-8")
     return out
 
 

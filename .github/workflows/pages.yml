@@ -29,6 +29,8 @@ jobs:
         run: python build_site.py
       - name: Карточки для соцсетей (общая и по выпускам)
         run: python make_card.py ru && python make_card.py --all-issues
+      - name: PDF-отчёты выпусков
+        run: python make_pdf.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

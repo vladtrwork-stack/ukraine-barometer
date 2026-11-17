@@ -22,7 +22,8 @@ idx = json.loads((D / "briefs/index.json").read_text(encoding="utf-8"))["briefs"
 last = max(b["id"] for b in idx)
 if age(last) > 8:
     problems.append(f"Последний выпуск {last} — {age(last)} дн. назад. Облачный агент, вероятно, не отработал: проверьте https://claude.ai/code/routines")
-for name, f, limit in [("НБУ", "indicators.json", 2), ("DeepState", "front.json", 3), ("Prozorro", "procurement.json", 3)]:
+for name, f, limit in [("НБУ", "indicators.json", 2), ("DeepState", "front.json", 3), ("Prozorro", "procurement.json", 3),
+                       ("NASA", "lights.json", 4), ("GDELT", "media.json", 8)]:
     p = D / f
     if not p.exists():
         problems.append(f"{name}: файл {f} отсутствует")

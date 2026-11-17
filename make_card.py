@@ -61,6 +61,10 @@ def auto_values():
     if f.exists():
         p = json.loads(f.read_text(encoding="utf-8"))["points"]
         out["front_week_km2"] = p[-1]["occupied"] - p[-2]["occupied"] if len(p) > 1 else None
+    lt = SITE / "data/lights.json"
+    if lt.exists():
+        w = json.loads(lt.read_text(encoding="utf-8")).get("weekly", {})
+        out["lights_drop_count"] = sum(1 for k, v in w.items() if k not in ("crimea", "luhansk", "donetsk") and v.get("change") is not None and v["change"] < -10)
     pr = SITE / "data/procurement.json"
     if pr.exists():
         out["prozorro_noncomp"] = json.loads(pr.read_text(encoding="utf-8")).get("risk_noncomp_value_share")
