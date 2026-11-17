@@ -525,3 +525,6 @@ td a:hover b{text-decoration:underline}
 [hidden]{display:none!important}
 .side-foot{padding-top:2px}
 .search-wrap{margin-top:auto}
+
+/* результаты поиска: на компьютере поле внизу панели, поэтому открываются вверх */
+@media (min-width:981px){.search-res{top:auto;bottom:calc(100% + 8px);left:0;width:380px;max-height:70vh;box-shadow:0 20px 50px -12px rgba(0,0,0,.6)}}
