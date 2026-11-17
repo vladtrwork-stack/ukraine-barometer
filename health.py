@@ -26,7 +26,8 @@ for name, f, limit in [("НБУ", "indicators.json", 2), ("DeepState", "front.js
                        ("NASA", "lights.json", 4), ("GDELT", "media.json", 8)]:
     p = D / f
     if not p.exists():
-        problems.append(f"{name}: файл {f} отсутствует")
+        if name not in ("GDELT",):  # медиа публикуются только при полных данных
+            problems.append(f"{name}: файл {f} отсутствует")
         continue
     u = json.loads(p.read_text(encoding="utf-8")).get("updated", "1970-01-01")
     if age(u) > limit:
