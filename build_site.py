@@ -5,7 +5,7 @@
 
 Пишет: site/data/export/barometer.csv, site/feed.xml, site/feed-uk.xml, site/feed-en.xml, site/sitemap.xml
 """
-import json, sys, csv, pathlib, datetime as dt, html
+import json, sys, csv, pathlib, datetime as dt, html, re
 from email.utils import format_datetime
 
 ROOT = pathlib.Path(__file__).parent
@@ -153,6 +153,17 @@ main{{max-width:860px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-le
 <a class="b" href="{app}">{e(T['open'])} →</a></main></body></html>"""
 
 
+def bust_cache():
+    """Версия файлов по содержимому: style.css?v=…, app.js?v=… — браузер сразу берёт новую версию."""
+    import hashlib
+    page = SITE / "index.html"
+    s = page.read_text(encoding="utf-8")
+    for name in ("style.css", "app.js"):
+        v = hashlib.sha1((SITE / name).read_bytes()).hexdigest()[:8]
+        s = re.sub(rf'{re.escape(name)}(\?v=[0-9a-f]+)?"', f'{name}?v={v}"', s)
+    page.write_text(s, encoding="utf-8")
+
+
 def build():
     idx = sorted(load(DATA / "briefs/index.json")["briefs"], key=lambda x: x["id"])
     (DATA / "export").mkdir(exist_ok=True)
@@ -210,6 +221,7 @@ def build():
             (d / fn).write_text(issue_page(bb, lang, ix, sc, base), encoding="utf-8")
     if base:
         (SITE / "sitemap.xml").write_text(f"<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>{base}/</loc><lastmod>{idx[-1]['id']}</lastmod></url>" + "".join(f"<url><loc>{u}</loc></url>" for u in issue_urls) + "</urlset>", encoding="utf-8")
+    bust_cache()
     print(f"export: {len(rows)} строк; RSS ×3")
 
 
