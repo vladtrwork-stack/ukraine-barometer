@@ -99,6 +99,18 @@ def main():
         "reserves_yoy": change(s.get("reserves", {}).get("points", []), 12),
     }
 
+    # Если НБУ недоступен целиком (например, закрыта сеть) — файл не трогаем, чтобы не выдать старое за свежее
+    if len(out["errors"]) >= 5:
+        print("Все источники НБУ недоступны — indicators.json не изменён")
+        return
+    # Если недоступна часть рядов — сохраняем их прошлые значения, а не пишем пустые
+    prev_f = SITE_DATA / "indicators.json"
+    if prev_f.exists():
+        prev = json.loads(prev_f.read_text(encoding="utf-8")).get("series", {})
+        for k, v in prev.items():
+            if k not in out["series"] or not out["series"][k].get("points"):
+                out["series"][k] = v
+
     (SITE_DATA / "indicators.json").write_text(
         json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     (ARCHIVE / f"snapshot_{TODAY:%Y-%m-%d}.json").write_text(
@@ -107,6 +119,8 @@ def main():
     if out["errors"]:
         print("Ошибки:", *out["errors"], sep="\n  ")
 
+    if "--nbu-only" in sys.argv:
+        return
     # Дополнительные автоисточники (каждый пишет свой файл в site/data)
     import collect_front, collect_prozorro, collect_alerts, collect_lights, collect_media
     for name, mod in [("DeepState", collect_front), ("Prozorro", collect_prozorro), ("Тревоги", collect_alerts),

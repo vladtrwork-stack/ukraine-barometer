@@ -1,5 +1,6 @@
 name: Сбор данных
-# Каждый день в 03:00 UTC: НБУ, DeepState, Prozorro, тревоги → site/data, затем пересборка производных файлов.
+# Каждый день в 03:00 UTC. Каждый источник — отдельный шаг со своим лимитом времени:
+# сбой или задержка одного (например, лимиты GDELT) не отменяет остальные.
 on:
   schedule:
     - cron: "0 3 * * *"
@@ -10,17 +11,39 @@ concurrency: data
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install pillow==10.4.0
-      - name: Сбор
+      - name: НБУ
+        timeout-minutes: 5
+        continue-on-error: true
+        run: python collect.py --nbu-only
+      - name: DeepState
+        timeout-minutes: 8
+        continue-on-error: true
+        run: python collect_front.py
+      - name: Prozorro
+        timeout-minutes: 20
+        continue-on-error: true
+        run: python collect_prozorro.py
+      - name: Ночная яркость NASA
+        timeout-minutes: 10
+        continue-on-error: true
+        run: python collect_lights.py
+      - name: Тревоги
+        timeout-minutes: 5
+        continue-on-error: true
         env:
           ALERTS_TOKEN: ${{ secrets.ALERTS_TOKEN }}
-        run: python collect.py
+        run: python collect_alerts.py
+      - name: Медиа GDELT
+        timeout-minutes: 12
+        continue-on-error: true
+        run: python collect_media.py
       - name: Проверка и сборка
         run: python build_site.py
       - name: Коммит

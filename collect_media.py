@@ -25,20 +25,26 @@ Q = {
 }
 
 
+DEADLINE = [None]
+
+
 def get(query, mode):
+    if DEADLINE[0] and time.time() > DEADLINE[0]:
+        return []
     url = API + "?" + urllib.parse.urlencode({"query": f"{query} Ukraine", "mode": mode, "timespan": "12w", "format": "json"})
-    for a in range(4):
+    for a in range(2):  # при отказе (429) не ждём долго: недостающее доберёт следующий запуск
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "barometer/1.0 (open research)"}), timeout=90) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "barometer/1.0 (open research)"}), timeout=60) as r:
                 txt = r.read().decode("utf-8")
             d = json.loads(txt)
             return [(x["date"][:8], x["value"]) for x in d.get("timeline", [{}])[0].get("data", [])]
         except Exception:
-            time.sleep(20 * (a + 1))
+            time.sleep(20)
     return []
 
 
-def main(force=False):
+def main(force=False, budget_min=10):
+    DEADLINE[0] = time.time() + budget_min * 60
     if OUT.exists() and not force:
         old = json.loads(OUT.read_text(encoding="utf-8"))
         if (dt.date.today() - dt.date.fromisoformat(old["updated"])).days < 3:

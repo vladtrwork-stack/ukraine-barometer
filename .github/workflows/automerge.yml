@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 jobs:
   merge:
     runs-on: ubuntu-latest
@@ -31,6 +32,8 @@ jobs:
             gh pr merge "$n" -R "$REPO" --squash --delete-branch && merged=1
           done
           echo "merged=$merged" >> "$GITHUB_OUTPUT"
+          # мёрдж от имени бота не запускает другие workflow — публикацию запускаем явно
+          if [ "$merged" = "1" ]; then gh workflow run pages.yml -R "$REPO" --ref main; fi
   telegram:
     needs: merge
     if: needs.merge.outputs.merged == '1'

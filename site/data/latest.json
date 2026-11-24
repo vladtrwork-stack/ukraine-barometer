@@ -1,16 +1,16 @@
 {
- "id": "2026-11-17",
- "number": 1,
- "compiled": "2026-11-17",
- "index": 2.41,
+ "id": "2026-11-24",
+ "number": 2,
+ "compiled": "2026-11-24",
+ "index": 2.32,
  "period": {
-  "ru": "10–16 ноября 2026",
-  "uk": "10–16 листопада 2026",
-  "en": "10–16 November 2026"
+  "ru": "17–23 ноября 2026",
+  "uk": "17–23 листопада 2026",
+  "en": "17–23 November 2026"
  },
  "domains": {
   "energy": {
-   "score": 1.5,
+   "score": 1.25,
    "status": "crit",
    "name": {
     "ru": "Энергетика",
@@ -19,7 +19,7 @@
    }
   },
   "airdef": {
-   "score": 1.6,
+   "score": 1.3,
    "status": "crit",
    "name": {
     "ru": "ПВО и защита тыла",
@@ -28,7 +28,7 @@
    }
   },
   "front": {
-   "score": 3.4,
+   "score": 4.0,
    "status": "warn",
    "name": {
     "ru": "Фронт",
@@ -55,7 +55,7 @@
    }
   },
   "finance": {
-   "score": 2.5,
+   "score": 1.5,
    "status": "warn",
    "name": {
     "ru": "Госфинансы",
@@ -64,7 +64,7 @@
    }
   },
   "anticorr": {
-   "score": 2.2,
+   "score": 2.0,
    "status": "warn",
    "name": {
     "ru": "Антикоррупция",
@@ -73,7 +73,7 @@
    }
   },
   "diplomacy": {
-   "score": 3.0,
+   "score": 3.3,
    "status": "info",
    "name": {
     "ru": "Дипломатия",
